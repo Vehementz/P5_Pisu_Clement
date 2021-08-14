@@ -35,11 +35,10 @@ fetch(urlApi)
       name.classList.add("contenair-description-name");
       
       let price = document.createElement("p");
-      price.innerText = data[i].price;
-      // priceConv = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(priceInit);
-      // price = priceConv.innerText;
-
       // price.innerText = data[i].price;
+      let priceInit = Number(data[i].price) / 100;
+      priceConv = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(priceInit);
+      price.innerText = priceConv;
       
       price.classList.add("container-description-price");
 
