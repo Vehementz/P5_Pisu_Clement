@@ -35,9 +35,9 @@ fetch(urlApi)
       name.classList.add("contenair-description-name");
       
       let price = document.createElement("p");
-      priceInit = data[i].price
-      priceConv = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(priceInit);
-      price = priceConv.innerText;
+      price.innerText = data[i].price;
+      // priceConv = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(priceInit);
+      // price = priceConv.innerText;
 
       // price.innerText = data[i].price;
       
@@ -54,7 +54,6 @@ fetch(urlApi)
       carte.appendChild(containerDescription);
       containerDescription.appendChild(name);
       containerDescription.appendChild(price);
-      new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(price);
   }
     
   })
