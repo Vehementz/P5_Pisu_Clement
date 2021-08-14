@@ -5,7 +5,7 @@ let cameraContainer = document.querySelector(".card-container");
 let resultatAllProduct;
 
 
-function fetchCamera() {
+function getCameras() {
 fetch(urlApi)
   .then(function(res) {
     if (res.ok) {
@@ -53,35 +53,21 @@ fetch(urlApi)
       carte.appendChild(containerDescription);
       containerDescription.appendChild(name);
       containerDescription.appendChild(price);
-  }
+
+
+      let detailLink = document.createElement("a");
+      containerDescription.appendChild(detailLink);
+      detailLink.innerText = "Details";
+      detailLink.href = "./product.html?" + data[i]._id;
+      detailLink.classList.add("detail-link");
+      console.log(detailLink);
+}
     
   })
 
-  
- 
-
 }
 
-fetchCamera();
+getCameras();
 
 
 
-
-
-
-// function createCards(arr) {
-  
-//   for(let i = 0; i < arr.length; i++) {
-//     const carte = document.createElement("a");
-//     const imgCard = document.createElement("img");
-//     imgCard.src = [i].imageUrl;
-//     const name = document.createElement("p");
-//     name.innerText = [i].name;
-
-//     card-container.appendChild(carte);
-
-//     carte.classList.add("camera-card");
-//     carte.appendChild(imgCard);
-//     carte.appendChild(name);
-//   }
-// }

@@ -37,7 +37,7 @@ nav a {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 4.5rem;
   text-align: center;
   margin: 3rem auto 0 auto;
   color: #45caff;
@@ -52,9 +52,6 @@ h1 {
   object-position: 0 30%;
 }
 
-
-
-
 .card-container {
   width: 100%;
   height: auto;
@@ -62,14 +59,18 @@ h1 {
   flex-direction: row;
   flex-wrap: wrap;
   margin: auto;
-  justify-content: center;
 }
 
 .camera-card {
   height: 20vh;
   width: 30%;
   border-radius: 5% 5% 0 0;
-  margin: 0 auto 35vh auto;
+  margin: 0 2rem 40vh 2rem;
+  min-width: 30rem;
+}
+
+.camera-card:hover {
+  transform: scale(1.02);
 }
 
 .camera-card img {
@@ -78,6 +79,7 @@ h1 {
   margin: 0;
   border-radius: 5% 5% 0 0;
 }
+
 
 .container-description {
   display: flex;
@@ -98,12 +100,22 @@ h1 {
 }
 
 .contenair-description-name {
-  color: rgb(151, 6, 151);
+  color: rgb(43, 1, 43);
   font-size: 1.5rem;
+  font-weight: 700;
+  font-style: italic;
 }
 
 .container-description-price {
   font-size: 1.2rem;
+}
+
+.detail-link {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+  text-decoration: underline;
+  
 }
 
 footer {
@@ -111,4 +123,13 @@ footer {
   width: 100%;
   background: linear-gradient(to left, #485796, #45caff);
   margin-top: 5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  font-size: 2.3rem;
+  font-style: italic;
 }
