@@ -1,0 +1,114 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  list-style-type: none; 
+  color: inherit;
+}
+
+
+html {
+  font-size: 62.5%;
+}
+
+
+body {
+  background: gray;
+}
+
+nav {
+  height: 15vh;
+  /* background: linear-gradient(to left, #ff1b6b, #45caff); */
+  background: linear-gradient(to right, #485796, #45caff);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  
+}
+
+nav a {
+  color: black;
+  font-size: 3.5rem;
+  margin: auto 5rem; 
+  font-family: 'Style Script', cursive;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin: 3rem auto 0 auto;
+  color: #45caff;
+  font-family: 'Style Script', cursive;
+  margin-bottom: 5rem;
+}
+
+.jumbotron img {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  object-position: 0 30%;
+}
+
+
+
+
+.card-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+}
+
+.camera-card {
+  height: 20vh;
+  width: 30%;
+  border-radius: 5% 5% 0 0;
+  margin: 0 auto 35vh auto;
+}
+
+.camera-card img {
+  width: 100%;
+  height: 25rem;
+  margin: 0;
+  border-radius: 5% 5% 0 0;
+}
+
+.container-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:goldenrod;
+  margin-top: -.5rem;
+  border-radius: 0 0 5% 5%;
+  
+}
+
+
+.container-description p {
+  text-align: center;
+  height: 3rem;
+  margin: 1rem 0 0 0;
+
+}
+
+.contenair-description-name {
+  color: rgb(151, 6, 151);
+  font-size: 1.5rem;
+}
+
+.container-description-price {
+  font-size: 1.2rem;
+}
+
+footer {
+  height: 10vh;
+  width: 100%;
+  background: linear-gradient(to left, #485796, #45caff);
+  margin-top: 5rem;
+}
