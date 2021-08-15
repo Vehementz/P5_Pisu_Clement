@@ -4,11 +4,29 @@ $(document).ready(function() {
   let urlSearchParams = new URLSearchParams(queryString);
   $.get(`http://localhost:3000/api/cameras/${urlSearchParams.get("id")}`,function(response) { 
       
-      $('#titre').html(response.name);
-      $('#img-title').html(response.description);
-      let imgTag = `<img src="${response.imgUrl}" alt="${response.name}" >`;
-      $("#img-container").html(imgTag);
-  
+      let titre = document.querySelector("#product-titre");
+      titre.innerHTML = response.name;
+      // $('#titre').html(response.name);
+      let imgTag = document.querySelector("#product-card-img");
+      imgTag.src = response.imageUrl;
+      imgTag.alt = response.name;
+
+      let productPrice = document.querySelector("#product-price");
+      
+      let priceInit = Number(response.price) / 100;
+      priceConv = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(priceInit);
+      productPrice.innerText = priceConv;
+
+      
+
+      let productContainer = document.querySelector('.product-container');
+      let cardContainer = document.querySelector('#product-card-container');
+      let productDescription = document.querySelector("#product-description");
+      productDescription.innerHTML = response.description;
+     
+      
+      
+
       } );
 
     });

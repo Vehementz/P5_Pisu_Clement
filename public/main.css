@@ -133,3 +133,49 @@ footer p {
   font-size: 2.3rem;
   font-style: italic;
 }
+
+
+
+.product-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#product-card-container {
+  width: 50%;
+  height: 80%;
+  border-radius: 10% 10% 10% 10%;
+  border: 5px solid rgb(235, 211, 149);
+  padding: 0.5rem;
+}
+
+#product-card-img {
+  height: 20rem;
+  width: 100%;
+  border-radius: 10% 10% 0 0;
+}
+
+#product-container-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+#product-titre {
+  font-family: 'Mate SC', serif;
+  font-size: 2rem;
+}
+
+#product-price {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
+#product-description {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 1rem;
+}
