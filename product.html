@@ -28,9 +28,24 @@
     <div id="product-card-container">
       <img id="product-card-img">
       <div id="product-container-description">
-        <h2 id="product-titre"></h2>
-        <p id="product-price"></p>
+        <div id="name-price-container">
+          <h2 id="product-titre"></h2>
+          <p id="product-price"></p>
+        </div>
         <p id="product-description"></p>
+        <div id="product-card-quantity">
+          <label id="lens-quantity-label" for="lens-quantity">Quantité :</label>
+          <input id="lens-quantity-input" type="number" name="lens" value="1" min="1">
+        </div>
+        <div id="product-card-size">
+          <label id="lens-quantity-size" for="color-select">Taille:</label>
+          <select id="lens-size-select" name="size">
+          </select>
+        </div>
+        <div id="product-add-to-cart">
+          Ajouter au panier
+        </div>
+
       </div>
     </div>
     
