@@ -24,9 +24,13 @@ $(document).ready(function() {
       let productDescription = document.querySelector("#product-description");
       productDescription.innerHTML = response.description;
      
+      let lensSizeSelect = document.querySelector("#lens-size-select");
+      for (let i = 0; i < response.lenses.length; i++) {
+        let option = document.createElement("option");
+        option.innerText = response.lenses[i];
+        lensSizeSelect.appendChild(option);
       
-      
-
+      }
       } );
 
     });
