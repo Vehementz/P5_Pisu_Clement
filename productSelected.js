@@ -1,21 +1,28 @@
+let titre = document.querySelector("#product-titre");
+let productPrice = document.querySelector("#product-price");
+let quantityProducts = document.querySelector("#lens-quantity-input");
+let params = (new URL(document.location)).searchParams;
+let id = params.get('id'); 
+
+
 $(document).ready(function() {
 
   let queryString = window.location.search;
   let urlSearchParams = new URLSearchParams(queryString);
   $.get(`http://localhost:3000/api/cameras/${urlSearchParams.get("id")}`,function(response) { 
       
-      let titre = document.querySelector("#product-titre");
+      
       titre.innerHTML = response.name;
       // $('#titre').html(response.name);
       let imgTag = document.querySelector("#product-card-img");
       imgTag.src = response.imageUrl;
       imgTag.alt = response.name;
 
-      let productPrice = document.querySelector("#product-price");
+      
       
       let priceInit = Number(response.price) / 100;
-      priceConv = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(priceInit);
-      productPrice.innerText = priceConv;
+      priceConv = new Intl.NumberFormat("eu-EU", {style: "currency", currency: "EUR"}).format(priceInit);
+      productPrice.innerHTML = priceConv;
 
       
 
@@ -35,30 +42,24 @@ $(document).ready(function() {
 
     });
 
-   
+let sizeSelected = document.querySelector("#lens-size-select");
+
+const choixForm = sizeSelected.value;
+
+const btnSendToCard = document.querySelector("#product-add-to-cart-btn");
+btnSendToCard.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let dataProductToCart = {
+  name: titre.innerHTML,
+  price: parseFloat(productPrice.innerHTML),
+  quantity: parseFloat(quantityProducts.value),
+  id: id,
+};
+console.log(dataProductToCart);
+
+})
 
 
 
 
-
-
-// const queryStringUrlId = window.location.search;
-// console.log(queryStringUrlId);
-
-// // let idRaw = queryStringUrlId.slice(1);
-// // console.log(idRaw);
-
-
-// let urlSearchParams = new URLSearchParams(queryStringUrlId);
-
-// console.log(urlSearchParams);
-
-// const id = urlSearchParams.get("id");
-// console.log(id);
-
-
-// // let url = new URL(url_str);
-// let search_params = urlSearchParams.searchParams; 
-
-// maVariableQuiDétientId = search_params.get('id')
-// fetch( "localhost:3000/api/cameras/"  + maVariableQuiDétientId )
