@@ -205,6 +205,11 @@ footer p {
   
 }
 
+.product-card-size-form {
+  display: flex;
+  flex-direction: row;
+}
+
 
 #lens-quantity-label,
 #lens-quantity-size {
@@ -228,7 +233,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-#product-add-to-cart {
+#product-add-to-cart-btn {
   margin: 1.5rem auto;
   padding: 1.2rem 0;
   font-size: 2.3rem;
@@ -239,8 +244,10 @@ input[type=number] {
   width: 50%;
   background-color: rgb(181, 131, 4);
   border-radius: 10px;
+  cursor: pointer;
 }
 
 #product-add-to-cart {
   cursor: pointer;
 }
+
