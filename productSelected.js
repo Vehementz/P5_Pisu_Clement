@@ -1,8 +1,14 @@
 let titre = document.querySelector("#product-titre");
 let productPrice = document.querySelector("#product-price");
 let quantityProducts = document.querySelector("#lens-quantity-input");
+let lensSizeSelect = document.querySelector("#lens-size-select");
+
+
+// Permet de sélectionner l'id qui est placé après id dans le lien de la page
+
 let params = (new URL(document.location)).searchParams;
 let id = params.get('id'); 
+
 
 
 $(document).ready(function() {
@@ -13,7 +19,7 @@ $(document).ready(function() {
       
       
       titre.innerHTML = response.name;
-      // $('#titre').html(response.name);
+
       let imgTag = document.querySelector("#product-card-img");
       imgTag.src = response.imageUrl;
       imgTag.alt = response.name;
@@ -31,10 +37,10 @@ $(document).ready(function() {
       let productDescription = document.querySelector("#product-description");
       productDescription.innerHTML = response.description;
      
-      let lensSizeSelect = document.querySelector("#lens-size-select");
+     
       for (let i = 0; i < response.lenses.length; i++) {
         let option = document.createElement("option");
-        option.innerText = response.lenses[i];
+        option.innerHTML = response.lenses[i];
         lensSizeSelect.appendChild(option);
       
       }
@@ -42,9 +48,6 @@ $(document).ready(function() {
 
     });
 
-let sizeSelected = document.querySelector("#lens-size-select");
-
-const choixForm = sizeSelected.value;
 
 const btnSendToCard = document.querySelector("#product-add-to-cart-btn");
 btnSendToCard.addEventListener("click", (e) => {
@@ -55,6 +58,7 @@ btnSendToCard.addEventListener("click", (e) => {
   price: parseFloat(productPrice.innerHTML),
   quantity: parseFloat(quantityProducts.value),
   id: id,
+  options: lensSizeSelect.value,
 };
 console.log(dataProductToCart);
 
