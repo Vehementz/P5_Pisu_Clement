@@ -4,9 +4,85 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nos caméras</title>
+  <link rel="stylesheet" href="public/main.css">
+  <link rel="shortcut icon" href="#">
+
+  <!---  Google font begin  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mate+SC&family=Style+Script&display=swap" rel="stylesheet">
+  
+  
+   <!---  Google font end  -->
+  <title>Orinoco photo</title>
 </head>
 <body>
-  <p>Hello</p>
+  <nav id="navigation">
+    <a href="./home.html">Nos Produits</a>
+    <a href="#panier">Panier</a>
+  </nav>
+  <h1>La caméra</h1>
+ 
+
+  <main class="product-container">
+    <div id="product-card-container">
+      <img id="product-card-img">
+      <div id="product-container-description">
+        <div id="name-price-container">
+          <h2 id="product-titre"></h2>
+          <p id="product-price"></p>
+        </div>
+        <p id="product-description"></p>
+        <div id="product-card-quantity">
+          <label id="lens-quantity-label" for="lens-quantity">Quantité :</label>
+          <input id="lens-quantity-input" type="number" name="lens" value="1" min="1">
+        </div>
+        <div id="product-card-size">
+          <form class="product-card-size-form">
+            <label id="lens-quantity-size" for="color-select">Taille:</label>
+            <select id="lens-size-select" name="size">
+            </select>
+          </form>
+        </div>
+        
+        <button id="product-add-to-cart-btn" type="submit" name="btn-send"> 
+          Ajouter au panier
+        </button>
+
+      </div>
+    </div>
+    
+
+
+  </main>
+
+  <footer>
+    <p>Orinoco</p>
+  </footer>
+  
+
+
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+<script src="./productSelected.js"></script>
+<script>
+
+
+  // $.ajax({
+  //   'url': `http://localhost:3000/api/cameras/${urlSearchParams.get("id")}`, 
+  //   'type': 'GET',
+  //   'dataType': 'json',
+  //   success: function(response) { 
+      
+  //   $('#titre').html(response.name);
+  //   $('#img-title').html(response.description);
+  //   let imgTag = `<img src="${response.imgUrl}" alt="${response.name}" >`;
+  //   $("#img-container").html(imgTag);
+
+  //   },
+  //   error: function(response) { console.log(response.statusText); } }); 
+    
+
+</script>
+
 </html>

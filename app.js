@@ -1,5 +1,4 @@
 const urlApi = "http://localhost:3000/api/cameras";
-// const cameraContainer = document.getElementsByClassName("card-container");
 let cameraContainer = document.querySelector(".card-container");
 
 let resultatAllProduct;
@@ -14,8 +13,9 @@ fetch(urlApi)
   })
 
   .catch(function(err) {
-    cameraContainer.innerHTML = "Nous sommes désolé une erreur c'est produite";
-    
+    cameraContainer.innerHTML = "Nous sommes désolés une erreur c'est produite";
+    cameraContainer.style.justifyContent = "center";
+    cameraContainer.style.fontSize = "2.5rem";
   })
   
   .then(function(data) {
@@ -58,9 +58,9 @@ fetch(urlApi)
       let detailLink = document.createElement("a");
       containerDescription.appendChild(detailLink);
       detailLink.innerText = "Details";
-      detailLink.href = "./product.html?" + data[i]._id;
+      detailLink.href = "./product.html?id=" + data[i]._id;
       detailLink.classList.add("detail-link");
-      console.log(detailLink);
+      
 }
     
   })

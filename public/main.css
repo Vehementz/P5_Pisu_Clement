@@ -133,3 +133,121 @@ footer p {
   font-size: 2.3rem;
   font-style: italic;
 }
+
+
+
+.product-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#product-card-container {
+  width: 50%;
+  height: 80%;
+  border-radius: 10% 10% 10% 10%;
+  border: 5px solid rgb(235, 211, 149);
+  padding: 0.5rem;
+}
+
+#product-card-img {
+  height: 20rem;
+  width: 100%;
+  border-radius: 15% 15% 0 0;
+}
+
+#product-container-description {
+  display: flex;
+  flex-direction: column;
+  
+  
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+#name-price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  
+}
+
+#product-titre {
+  font-family: 'Mate SC', serif;
+  font-size: 2rem;
+  color: #ecf9fd;
+}
+
+#product-price {
+  font-size: 2rem;
+  
+}
+
+#product-description {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+
+#product-card-quantity {
+  margin-top: 2rem;
+}
+
+#product-card-quantity input, 
+#product-card-size {
+  width: 4rem;
+  text-align: center;
+}
+
+#product-card-size {
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.product-card-size-form {
+  display: flex;
+  flex-direction: row;
+}
+
+
+#lens-quantity-label,
+#lens-quantity-size {
+  font-size: 1.3rem;
+  margin: 1rem 0;
+}
+
+#lens-size-select {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#product-add-to-cart-btn {
+  margin: 1.5rem auto;
+  padding: 1.2rem 0;
+  font-size: 2.3rem;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  border: 3px solid white;
+  width: 50%;
+  background-color: rgb(181, 131, 4);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#product-add-to-cart {
+  cursor: pointer;
+}
+
