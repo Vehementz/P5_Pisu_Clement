@@ -60,9 +60,33 @@ btnSendToCard.addEventListener("click", (e) => {
   id: id,
   options: lensSizeSelect.value,
 };
-console.log(dataProductToCart);
+
+
+  let productSaveInLocalStorage = JSON.parse(localStorage.getItem("product"));
+  const popupConfirm = () => {
+    if(window.confirm(`${dataProductToCart.name} lentille ${dataProductToCart.options} a été ajouté au panier. OK pour consulter le panier, ANNULER pour retourner à l'accueil`)) {
+      window.location.href = "cart.html";
+    } else {
+      window.location.href = "home.html";
+    }
+  }
+
+  if (productSaveInLocalStorage) {
+    productSaveInLocalStorage.push(dataProductToCart);
+    localStorage.setItem("product", JSON.stringify(productSaveInLocalStorage));
+    popupConfirm();
+  }
+
+  else {
+    productSaveInLocalStorage = [];
+    productSaveInLocalStorage.push(dataProductToCart);
+    localStorage.setItem("product", JSON.stringify(productSaveInLocalStorage));
+    console.log(productSaveInLocalStorage);
+  }
+
 
 })
+
 
 
 
