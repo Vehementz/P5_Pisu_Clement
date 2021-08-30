@@ -63,6 +63,11 @@ btnSendToCard.addEventListener("click", (e) => {
 
 
   let productSaveInLocalStorage = JSON.parse(localStorage.getItem("product"));
+  let pushToLocalStorage = () => {
+    productSaveInLocalStorage.push(dataProductToCart);
+    localStorage.setItem("product", JSON.stringify(productSaveInLocalStorage));
+  }
+
   const popupConfirm = () => {
     if(window.confirm(`${dataProductToCart.name} lentille ${dataProductToCart.options} a été ajouté au panier. OK pour consulter le panier, ANNULER pour retourner à l'accueil`)) {
       window.location.href = "cart.html";
@@ -72,15 +77,13 @@ btnSendToCard.addEventListener("click", (e) => {
   }
 
   if (productSaveInLocalStorage) {
-    productSaveInLocalStorage.push(dataProductToCart);
-    localStorage.setItem("product", JSON.stringify(productSaveInLocalStorage));
+    pushToLocalStorage();
     popupConfirm();
   }
 
   else {
     productSaveInLocalStorage = [];
-    productSaveInLocalStorage.push(dataProductToCart);
-    localStorage.setItem("product", JSON.stringify(productSaveInLocalStorage));
+    pushToLocalStorage();
     console.log(productSaveInLocalStorage);
   }
 
