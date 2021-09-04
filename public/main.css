@@ -34,6 +34,7 @@ nav a {
   margin: auto 5rem; 
   font-family: 'Style Script', cursive;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 h1 {
@@ -249,5 +250,13 @@ input[type=number] {
 
 #product-add-to-cart {
   cursor: pointer;
+}
+
+
+/*-----------------Cart page -------------*/
+
+#cart-container {
+  display: flex;
+  justify-content: center;
 }
 

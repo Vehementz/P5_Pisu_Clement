@@ -26,9 +26,9 @@ $(document).ready(function() {
 
       
       
-      let priceInit = Number(response.price) / 100;
-      priceConv = new Intl.NumberFormat("eu-EU", {style: "currency", currency: "EUR"}).format(priceInit);
-      productPrice.innerHTML = priceConv;
+      let priceInit = parseFloat(response.price) / 100;
+      // priceConv = new Intl.NumberFormat("eu-EU", {style: "currency", currency: "EUR"}).format(priceInit);
+      productPrice.innerHTML =`${priceInit} €`;
 
       
 
@@ -56,17 +56,52 @@ btnSendToCard.addEventListener("click", (e) => {
   let dataProductToCart = {
   name: titre.innerHTML,
   price: parseFloat(productPrice.innerHTML),
-  quantity: parseFloat(quantityProducts.value),
+  quantity: parseInt(quantityProducts.value),
   id: id,
   options: lensSizeSelect.value,
 };
 
+  let dataTotalPrice = {
+    cost: (parseFloat(dataProductToCart.price)) * (parseFloat(dataProductToCart.quantity)),
+  }
+
+  let nbArticle = Number(dataProductToCart.quantity);
+
+
+console.log(dataTotalPrice.cost);
+
 
   let productSaveInLocalStorage = JSON.parse(localStorage.getItem("product"));
+  
   let pushToLocalStorage = () => {
     productSaveInLocalStorage.push(dataProductToCart);
     localStorage.setItem("product", JSON.stringify(productSaveInLocalStorage));
   }
+  
+  
+  let pushTotalCost = () => {
+    valueJson = JSON.parse(localStorage.getItem("total-cost"));
+    console.log(valueJson);
+    value = parseFloat(valueJson) + parseFloat(dataTotalPrice.cost);
+    console.log(value);
+    localStorage.setItem("total-cost", JSON.stringify(value));
+  }
+
+  pushFirstPrice = () => {
+    localStorage.setItem("total-cost", JSON.stringify(dataTotalPrice.cost));
+  }
+  
+
+  pushTotalNbArticles = () => {
+    valueNb = JSON.parse(localStorage.getItem("nbArticlesTotal"));
+    totalValue = parseInt(valueNb) + nbArticle;
+    localStorage.setItem("nbArticlesTotal", JSON.stringify(totalValue));
+  } 
+
+  pushFirstNbArticles = () => {
+    localStorage.setItem("nbArticlesTotal", JSON.stringify(nbArticle));
+  }
+
 
   const popupConfirm = () => {
     if(window.confirm(`${dataProductToCart.name} lentille ${dataProductToCart.options} a été ajouté au panier. OK pour consulter le panier, ANNULER pour retourner à l'accueil`)) {
@@ -79,12 +114,17 @@ btnSendToCard.addEventListener("click", (e) => {
   if (productSaveInLocalStorage) {
     pushToLocalStorage();
     popupConfirm();
+    pushTotalCost();
+    pushTotalNbArticles();
   }
 
   else {
     productSaveInLocalStorage = [];
     pushToLocalStorage();
-    console.log(productSaveInLocalStorage);
+    pushFirstPrice();
+    pushFirstNbArticles();
+    popupConfirm();
+    
   }
 
 
