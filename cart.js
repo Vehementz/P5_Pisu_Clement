@@ -88,7 +88,27 @@ else {
         window.location.href = "cart.html"
     });
     
+    let formSection = document.querySelector("#form-section");
+    formSection.innerHTML = `<form id="form-container" action="#">
+    <label for="firstName">Prénom</label>
+    <input type="text" id="firstName" name="firstName" required>
 
+    <label for="lastName">Nom</label>
+    <input type="text" id="lastName" name="lastName" required>
+
+    <label for="adress">Adresse</label>
+    <input type="text" id="adress" name="adress" required>
+
+    <label for="city">Ville</label>
+    <input type="text" id="city" name="city" required>
+
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" required>
+
+    <button id="send-form" type="submit" name="send-form">
+      Payer
+    </button>
+  </form>`
     
 
 } 

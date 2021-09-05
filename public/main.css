@@ -314,3 +314,15 @@ input[type=number] {
   background-color: blue;
 }
 
+#form-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
+}
+
+#send-form {
+  width: 50%;
+  margin: auto;
+  background-color: yellowgreen;
+}
