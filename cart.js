@@ -89,7 +89,8 @@ else {
     });
     
     let formSection = document.querySelector("#form-section");
-    formSection.innerHTML = `<form id="form-container" action="#">
+    formSection.innerHTML = `<h2 class="form-title">Formulaire<h2/>
+    <form id="form-container">
     <label for="firstName">Prénom</label>
     <input type="text" id="firstName" name="firstName" required>
 
@@ -105,13 +106,46 @@ else {
     <label for="email">Email</label>
     <input type="text" id="email" name="email" required>
 
-    <button id="send-form" type="submit" name="send-form">
+    <button id="btn-send-form" type="submit" name="send-form">
       Payer
     </button>
-  </form>`
+  </form>`;
     
 
 } 
+
+// Selection du boutton du formulaire pour envoyer au backend ultérieurement 
+// puis  enregistrement des données du formulaire en localStorage
+
+/*
+let btnSendForm = document.querySelector("#btn-send-form");
+
+btnSendForm.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.setItem("firstName", document.querySelector("#firstName").value);
+    localStorage.setItem("lastName", document.querySelector("#lastName").value);
+    localStorage.setItem("adress", document.querySelector("#adress").value);
+    localStorage.setItem("city", document.querySelector("#city").value);
+    localStorage.setItem("email", document.querySelector("#email").value);
+
+    const dataFormAddToLocalStorage = {
+        firstName: localStorage.getItem("firstName"),
+        lastName: localStorage.getItem("lastName"),
+        adress: localStorage.getItem("adress"),
+        city: localStorage.getItem("city"),
+        email: localStorage.getItem("email"),
+
+    }
+
+    const dataFormToSend = {
+        productSaveInLocalStorage,
+        dataFormAddToLocalStorage,
+    }
+
+});
+
+*/ 
+
 
 
 

@@ -314,6 +314,21 @@ input[type=number] {
   background-color: blue;
 }
 
+
+#form-section {
+  background: linear-gradient(to left, #d4d1ae, #999c6d);
+  width: 90%;
+  margin: 2rem auto 2rem;
+  border-radius: 20px;
+  
+}
+
+.form-title {
+  font-family: 'Style Script', cursive;
+  font-size: 2rem;
+  text-align: center;
+}
+
 #form-container {
   display: flex;
   flex-direction: column;
@@ -321,8 +336,16 @@ input[type=number] {
   margin: auto;
 }
 
+
+
 #send-form {
   width: 50%;
   margin: auto;
   background-color: yellowgreen;
+}
+
+#btn-send-form {
+  width: 20%;
+  margin: auto;
+  padding: 0.5rem 0;
 }
