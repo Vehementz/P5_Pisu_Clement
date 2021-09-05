@@ -254,9 +254,59 @@ input[type=number] {
 
 
 /*-----------------Cart page -------------*/
+.cart-title {
+  font-size: 4rem;
+  text-align: center;
+  font-family: 'Style Script', cursive;
+
+}
 
 #cart-container {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  margin: auto;
+  flex-direction: column;
+  background-color: wheat;
+  width: 80%;
+  border-radius: 20px;
+  
+}
+
+
+.category-title {
+  text-decoration: underline;
+}
+
+#cart-category {
+  display: flex;
+  flex-direction: row;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  margin: 0 4rem;
+  text-align: center;
+}
+
+
+#total-container {
+  display: flex;
+  flex-direction: row;
+  background-color: violet;
+  margin-top: 2rem;
+}
+
+#nb-total-articles {
+  
+  display: flex;
+  flex-direction: row;
+  
+}
+
+#total-price {
+  display: flex;
+  flex-direction: row;
+  margin-left: 2rem;
 }
 
