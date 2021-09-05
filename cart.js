@@ -39,20 +39,59 @@ else {
         let productQuantity = document.querySelector("#quantity-category");
         quantityElement.innerHTML = productSaveInLocalStorage[j].quantity;
         productQuantity.appendChild(quantityElement);
+
+        /*---------------- Enlever juste un article -------------- */
+
+
+    //     let btnClearArticle = document.createElement("button");
+    //     let removeCategory = document.querySelector("#remove-category");
+    //     let btnClearArticleP = document.createElement("p");
+    //     btnClearArticleP.innerHTML = "Supprimer";
+    //     btnClearArticle.appendChild(btnClearArticleP);
+    //     removeCategory.appendChild(btnClearArticle);
+
+    //             btnClearArticle.addEventListener("click", (e) => {
+    //     e.preventDefault();
+    //     localStorage.removeItem(productSaveInLocalStorage[j]);   
+    //     alert("Votre article a été supprimé");
+    //     window.location.href = "cart.html"
+    // });
+
     }
 
     let totalPriceP = document.createElement("p");
-        let totalPrice = document.querySelector("#total-price");
-        totalPriceP.innerHTML = `${totalPriceInLocalStorage} €`;
-        totalPrice.appendChild(totalPriceP);
+    let totalPrice = document.querySelector("#total-price");
+    totalPriceP.innerHTML = `${totalPriceInLocalStorage} €`;
+    totalPrice.appendChild(totalPriceP);
 
-     let nbTotalArticlesP = document.createElement("p");
-     let nbTotalArticles = document.querySelector("#nb-total-articles");
-     nbTotalArticlesP.innerHTML = totalArticlesInLocalStorage;
-     nbTotalArticles.appendChild(nbTotalArticlesP);
+    let nbTotalArticlesP = document.createElement("p");
+    let nbTotalArticles = document.querySelector("#nb-total-articles");
+    nbTotalArticlesP.innerHTML = totalArticlesInLocalStorage;
+    nbTotalArticles.appendChild(nbTotalArticlesP);
+    
+    let clearWholeCartContainer = document.querySelector("#clear-whole-cart-container");
+
+    
+    let buttonClearAll = document.createElement("button");
+    buttonClearAll.classList.add("btn-all");
+    let buttonClearAllP = document.createElement("p");
+    buttonClearAllP.innerHTML = "Vider le panier";
+    buttonClearAll.appendChild(buttonClearAllP);
+    buttonClearAll.classList.add("clear-whole-cart-btn");
+    clearWholeCartContainer.appendChild(buttonClearAll);
+    
+
+    buttonClearAll.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.clear();    
+        alert("Le panier à été vidé");
+        window.location.href = "cart.html"
+    });
+    
+
+    
 
 } 
 
-/* ---------------------- Vider le panier -----------------*/
 
-const clearAllProduct = document.querySelector("#clear-whole-cart");
+
