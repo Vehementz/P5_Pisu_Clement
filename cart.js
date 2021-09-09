@@ -44,6 +44,7 @@ else {
 
 
     //     let btnClearArticle = document.createElement("button");
+            
     //     let removeCategory = document.querySelector("#remove-category");
     //     let btnClearArticleP = document.createElement("p");
     //     btnClearArticleP.innerHTML = "Supprimer";
@@ -89,27 +90,42 @@ else {
     });
     
     let formSection = document.querySelector("#form-section");
-    formSection.innerHTML = `<h2 class="form-title">Formulaire<h2/>
-    <form id="form-container">
-    <label for="firstName">Prénom</label>
-    <input type="text" id="firstName" name="firstName" required>
+    formSection.innerHTML = `<div class="contact_box_form">       
+        <form>
+            <fieldset class="contact_title_form">
+                <legend>Panier</legend>
+            
 
-    <label for="lastName">Nom</label>
-    <input type="text" id="lastName" name="lastName" required>
+            <div class="contact_container_name">
+                
+                <div class="contact_firstname">
+                    <label class="contact_label_name"  for="prenom" name="prenom" id="prenom">Entrez votre prénom</label>
+                    <input class="contact_name_input" type="text" name="prenom" id="prenom" placeholder="Prénom" nom required maxlength="50">
+                </div>
 
-    <label for="adress">Adresse</label>
-    <input type="text" id="adress" name="adress" required>
+                <div class="contact_lastname">
+                    <label class="contact_label_name" for="nom" name="nom" id="nom">Entrez votre nom</label>
+                    <input class="contact_name_input" type="text" name="nom" id="nom" placeholder="Nom" required maxlength="50">
+                </div>
+                
+            </div>
 
-    <label for="city">Ville</label>
-    <input type="text" id="city" name="city" required>
+            <label for="adress">Adresse</label>
+            <input type="text" id="adress" name="adress" required>
 
-    <label for="email">Email</label>
-    <input type="text" id="email" name="email" required>
+            <label for="city">Ville</label>
+            <input type="text" id="city" name="city" required>
+            
+            <label for="postal-code">Code Postal</label>
+            <input type="text" id="postal-code" name="postal-code" required>
 
-    <button id="btn-send-form" type="submit" name="send-form">
-      Payer
-    </button>
-  </form>`;
+            <label for="email" class="contact_label_email">Entrez votre adresse Email</label>
+            <input type="email" name="email" id="email" class="contact_email_inp" required maxlength="50" placeholder="Entrez votre Email">
+
+            <button>Envoyez</button>
+        </fieldset>
+        </form>
+    </div>`;
     
 
 } 
