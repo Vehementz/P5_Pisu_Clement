@@ -60,10 +60,7 @@ else {
 
     }
 
-    let totalPriceP = document.createElement("p");
-    let totalPrice = document.querySelector("#total-price");
-    totalPriceP.innerHTML = `${totalPriceInLocalStorage} €`;
-    totalPrice.appendChild(totalPriceP);
+    
 
     let nbTotalArticlesP = document.createElement("p");
     let nbTotalArticles = document.querySelector("#nb-total-articles");
@@ -90,39 +87,44 @@ else {
     });
     
     let formSection = document.querySelector("#form-section");
-    formSection.innerHTML = `<div class="contact_box_form">       
+    formSection.innerHTML = `<div class="contact-box-form">       
         <form>
-            <fieldset class="contact_title_form">
+            <fieldset class="contact-title-form">
                 <legend>Panier</legend>
             
-
-            <div class="contact_container_name">
                 
-                <div class="contact_firstname">
-                    <label class="contact_label_name"  for="prenom" name="prenom" id="prenom">Entrez votre prénom</label>
-                    <input class="contact_name_input" type="text" name="prenom" id="prenom" placeholder="Prénom" nom required maxlength="50">
+                <h3 id="total-price">Montant total: ${totalPriceInLocalStorage} €</h3>
+                
+                
+            <div class="contact-container-name">
+                
+                <div class="contact-firstname">
+                    <label class="contact-label-name"  for="prenom" name="prenom" id="prenom">Entrez votre prénom</label>
+                    <input class="contact-name-input" type="text" name="prenom" id="prenom" placeholder="Prénom" nom required maxlength="50">
                 </div>
 
-                <div class="contact_lastname">
-                    <label class="contact_label_name" for="nom" name="nom" id="nom">Entrez votre nom</label>
-                    <input class="contact_name_input" type="text" name="nom" id="nom" placeholder="Nom" required maxlength="50">
+                <div class="contact-lastname">
+                    <label class="contact-label-name" for="nom" name="nom" id="nom">Entrez votre nom</label>
+                    <input class="contact-name-input" type="text" name="nom" id="nom" placeholder="Nom" required maxlength="50">
                 </div>
                 
             </div>
 
-            <label for="adress">Adresse</label>
-            <input type="text" id="adress" name="adress" required>
+            <label for="email" class="contact-label-email">Entrez votre adresse Email</label>
+            <input type="email" name="email" id="email" class="contact-email-inp" required maxlength="50" placeholder="Entrez votre Email">
 
-            <label for="city">Ville</label>
-            <input type="text" id="city" name="city" required>
+
+            <label for="contact-adress" class="contact-label-adress">Adresse</label>
+            <input type="text" id="contact-adress" name="contact-adress" class="contact-adress-inp" required>
+        
+            <label for="contact-city" class="contact-label-city">Ville</label>
+            <input type="text" id="contact-city" name="contact-city" class="contact-city-inp" required>
             
-            <label for="postal-code">Code Postal</label>
-            <input type="text" id="postal-code" name="postal-code" required>
+            <label for="contact-postal-code" class="contact-label-postal-code">Code Postal</label>
+            <input type="text" id="contact-postal-code" name="contact-postal-code" class="contact-postal-code-inp" required>
 
-            <label for="email" class="contact_label_email">Entrez votre adresse Email</label>
-            <input type="email" name="email" id="email" class="contact_email_inp" required maxlength="50" placeholder="Entrez votre Email">
-
-            <button>Envoyez</button>
+            
+            <button>Valider</button>
         </fieldset>
         </form>
     </div>`;
