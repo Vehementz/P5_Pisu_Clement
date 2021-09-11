@@ -100,28 +100,28 @@ else {
                 
                 <div class="contact-firstname">
                     <label class="contact-label-name"  for="prenom" name="prenom" id="prenom">Entrez votre prénom</label>
-                    <input class="contact-name-input" type="text" name="prenom" id="prenom" placeholder="Prénom" nom required maxlength="50">
+                    <input class="contact-name-input" type="text" name="lastName" id="prenom" placeholder="Prénom" required maxlength="50" pattern="[a-zA-Z\-]{2,50}">
                 </div>
 
                 <div class="contact-lastname">
                     <label class="contact-label-name" for="nom" name="nom" id="nom">Entrez votre nom</label>
-                    <input class="contact-name-input" type="text" name="nom" id="nom" placeholder="Nom" required maxlength="50">
+                    <input class="contact-name-input" type="text" name="firstName" id="nom" placeholder="Nom" required maxlength="50" pattern="[a-zA-Z\-]{2,50}">
                 </div>
                 
             </div>
 
             <label for="email" class="contact-label-email">Entrez votre adresse Email</label>
-            <input type="email" name="email" id="email" class="contact-email-inp" required maxlength="50" placeholder="Entrez votre Email">
+            <input type="email" name="email" id="email" class="contact-email-inp" required maxlength="50" pattern="/^{a-zA-Z0-9_\.-]+)@([\da-zA-Z\.-]+)\.(a-zA-Z\.]{2,8})$/" placeholder="Email">
 
 
             <label for="contact-adress" class="contact-label-adress">Adresse</label>
-            <input type="text" id="contact-adress" name="contact-adress" class="contact-adress-inp" required>
+            <input type="text" id="contact-adress" name="adress" class="contact-adress-inp" placeholder="12 rue des developpeurs"  pattern="[a-zA-Z0-9]{5,100}" required>
         
             <label for="contact-city" class="contact-label-city">Ville</label>
-            <input type="text" id="contact-city" name="contact-city" class="contact-city-inp" required>
+            <input type="text" id="contact-city" name="city" class="contact-city-inp" placeholder="Paris" required pattern="[a-zA-Z0-9]{2,20}" >
             
             <label for="contact-postal-code" class="contact-label-postal-code">Code Postal</label>
-            <input type="text" id="contact-postal-code" name="contact-postal-code" class="contact-postal-code-inp" required>
+            <input type="number" id="contact-postal-code" name="postal-code" class="contact-postal-code-inp" placeholder="75015" max="99999" required pattern="[0-9]{5}">
 
             
             <button>Valider</button>
