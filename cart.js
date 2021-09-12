@@ -22,31 +22,46 @@ else {
     for (j = 0; j < productSaveInLocalStorage.length; j++) {
         productSaveInLocalStorage[j] 
         
+        let cartContainer = document.querySelector("#cart-container");
+
+        let bodyWholeCard = document.createElement("div");
+        bodyWholeCard.classList.add("body-whole-card");
+        cartContainer.appendChild(bodyWholeCard);
+
+        let imageSide = document.createElement("div");
+        imageSide.classList.add("image-side");
+        bodyWholeCard.appendChild(imageSide);
+
         let imgElement = document.createElement("img");
-        let productImg = document.querySelector("#img-category");
+        imgElement.classList.add("cart-img-element");
         imgElement.src = productSaveInLocalStorage[j].imgProduct;
-        productImg.appendChild(imgElement);
+        imageSide.appendChild(imgElement);
+
+        let cardBodyRight = document.createElement("div");
+        cardBodyRight.classList.add("card-body-right");
+        bodyWholeCard.appendChild(cardBodyRight);
+
 
         let nameElement = document.createElement("p");
-        let productName = document.querySelector("#name-category");
+       
         nameElement.innerHTML = productSaveInLocalStorage[j].name;
-        productName.appendChild(nameElement);
+        nameElement.classList.add("cart-card-title");
+        cardBodyRight.appendChild(nameElement);
 
         let lensElement = document.createElement("p");
-        let productLens = document.querySelector("#lens-category");
-
-        lensElement.innerHTML = productSaveInLocalStorage[j].options;
-        productLens.appendChild(lensElement);
+        lensElement.innerHTML = `Lentille: ${productSaveInLocalStorage[j].options}`;
+        cardBodyRight.appendChild(lensElement);
 
         let priceElement = document.createElement("p");
-        let productPrice = document.querySelector("#price-category");
-        priceElement.innerHTML = `${(productSaveInLocalStorage[j].price) *(productSaveInLocalStorage[j].quantity)} €`;
-        productPrice.appendChild(priceElement);
+        priceElement.innerHTML = `Prix : ${(productSaveInLocalStorage[j].price) *(productSaveInLocalStorage[j].quantity)} €`;
+        cardBodyRight.appendChild(priceElement);
 
         let quantityElement = document.createElement("p");
-        let productQuantity = document.querySelector("#quantity-category");
-        quantityElement.innerHTML = productSaveInLocalStorage[j].quantity;
-        productQuantity.appendChild(quantityElement);
+        quantityElement.innerHTML = `Quantité : ${productSaveInLocalStorage[j].quantity}`;
+        cardBodyRight.appendChild(quantityElement);
+
+
+
 
         /*---------------- Enlever juste un article -------------- */
 
