@@ -286,7 +286,7 @@ input[type=number] {
   align-items: center;
   margin: auto;
   flex-direction: column;
-  width: 70%;
+  width: 40%;
   border-radius: 20px;
   height: auto;
   margin-left: 2rem;
@@ -297,11 +297,12 @@ input[type=number] {
   height: auto;
   border-radius: 5px 5px 5px 5px;
   flex-direction: column;
-  padding: 0.5rem;
+  padding: 0.2rem;
   display: flex;
   flex-direction: row;
   border: 1px solid brown;
   margin-bottom: 2rem;
+  background: linear-gradient(to right, #485796, #45caff);
 }
 
 .image-side {
@@ -315,6 +316,7 @@ input[type=number] {
   height: 100%;
   width: 100%;
   border-radius: 5px 0 0 5px;
+  padding-top: 0.2rem;
 }
 .card-body-right {
   height: 100%;
@@ -326,9 +328,12 @@ input[type=number] {
 
 .card-body-right .cart-card-title {
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
-
+.card-body-right p {
+  font-size: 1.2rem;
+}
 .cart-body-card {
   height: 10rem;
   width: 10rem;
@@ -341,6 +346,23 @@ input[type=number] {
   flex-direction: row;
   background-color: violet;
   margin-top: 2rem;
+}
+
+.cart-nb-and-remove {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  padding: 1rem 0;
+}
+
+.cart-nb-and-remove p {
+  font-size: 1.2rem;
+  position: relative;
+  top: 0.3rem;
+  
 }
 
 #nb-total-articles {
@@ -357,7 +379,7 @@ input[type=number] {
 }
 
 .clear-whole-cart-btn {
-  background-color: blue;
+  background-color: rgb(131, 104, 104);
 }
 
 /* Form cart section */
@@ -370,7 +392,7 @@ input[type=number] {
 
 .contact-box-form {
   height: 100%;
-  width: 100%;
+  width: 60%;
   margin: 3rem 4rem 0 2rem;
   border-radius: 5px;
   background: linear-gradient(0deg, rgba(126,121,96,1) 0%, rgba(253,187,45,1) 100%);

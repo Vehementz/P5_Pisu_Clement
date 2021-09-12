@@ -86,21 +86,24 @@ else {
     
 
     let nbTotalArticlesP = document.createElement("p");
-    let nbTotalArticles = document.querySelector("#nb-total-articles");
-    nbTotalArticlesP.innerHTML = totalArticlesInLocalStorage;
-    nbTotalArticles.appendChild(nbTotalArticlesP);
+    nbTotalArticlesP.innerHTML = ` Nomber total d'articles: ${totalArticlesInLocalStorage}`;
+    cartContainer.appendChild(nbTotalArticlesP);
+    cartContainer.classList.add("cart-nb-total-articles")
     
     let clearWholeCartContainer = document.querySelector("#clear-whole-cart-container");
 
-    
+    let nbAndRemove = document.createElement("div");
+    nbAndRemove.classList.add("cart-nb-and-remove");
+    cartContainer.appendChild(nbAndRemove);
+
     let buttonClearAll = document.createElement("button");
     buttonClearAll.classList.add("btn-all");
-    let buttonClearAllP = document.createElement("p");
-    buttonClearAllP.innerHTML = "Vider le panier";
-    buttonClearAll.appendChild(buttonClearAllP);
+    buttonClearAll.innerHTML = "Vider le panier";
     buttonClearAll.classList.add("clear-whole-cart-btn");
-    clearWholeCartContainer.appendChild(buttonClearAll);
     
+    nbAndRemove.appendChild(buttonClearAll);
+    nbAndRemove.appendChild(nbTotalArticlesP);
+
 
     buttonClearAll.addEventListener("click", (e) => {
         e.preventDefault();
