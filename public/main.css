@@ -295,23 +295,18 @@ input[type=number] {
 
 #img-category img {
   width: 10rem;
-  height: auto;
+  height: 8rem;
   border-radius: 10px;
   margin-bottom: 2rem;
 }
 .category-title {
   text-decoration: underline;
-  margin-bottom: 2rem;
+  margin: 2rem auto;
 }
 
 #cart-category {
   display: flex;
   flex-direction: row;
-}
-
-.category p {
-  margin-bottom: 7rem;
-  white-space: nowrap;
 }
 
 
@@ -321,6 +316,13 @@ input[type=number] {
   flex-direction: column;
   margin: 0 2rem;
   text-align: center;
+}
+
+.category p {
+  height: 8rem;
+  margin: auto auto 2rem auto;
+  white-space: nowrap;
+  line-height: 8rem;
 }
 
 
