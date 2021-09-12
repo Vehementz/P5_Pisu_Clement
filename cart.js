@@ -115,10 +115,10 @@ else {
 
 
             <label for="contact-adress" class="contact-label-adress">Adresse</label>
-            <input type="text" id="contact-adress" name="adress" class="contact-adress-inp" placeholder="12 rue des developpeurs"  pattern="[a-zA-Z0-9]{5,100}" required>
+            <input type="text" id="contact-adress" name="adress" class="contact-adress-inp" placeholder="12 rue des developpeurs"  pattern="^([0-9]{1,5})(\s)([a-zA-Z\.\s]*)$" required>
         
             <label for="contact-city" class="contact-label-city">Ville</label>
-            <input type="text" id="contact-city" name="city" class="contact-city-inp" placeholder="Paris" required pattern="[a-zA-Z0-9]{2,20}" >
+            <input type="text" id="contact-city" name="city" class="contact-city-inp" placeholder="Paris" required pattern="[a-zA-Z]{2,20}" >
             
             <label for="contact-postal-code" class="contact-label-postal-code">Code Postal</label>
             <input type="number" id="contact-postal-code" name="postal-code" class="contact-postal-code-inp" placeholder="75015" max="99999" required pattern="[0-9]{5}">
