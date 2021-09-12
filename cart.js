@@ -111,7 +111,7 @@ else {
             </div>
 
             <label for="email" class="contact-label-email">Entrez votre adresse Email</label>
-            <input type="email" name="email" id="email" class="contact-email-inp" required maxlength="50" pattern="/^{a-zA-Z0-9_\.-]+)@([\da-zA-Z\.-]+)\.(a-zA-Z\.]{2,8})$/" placeholder="Email">
+            <input type="email" name="email" id="email" class="contact-email-inp" required maxlength="50" pattern="/^([a-zA-Z0-9\._-]+)@([\a-zA-Z0-9]+)\.([a-zA-Z\.]{2,8})$/" placeholder="Email">
 
 
             <label for="contact-adress" class="contact-label-adress">Adresse</label>
