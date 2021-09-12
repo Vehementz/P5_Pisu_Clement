@@ -2,7 +2,7 @@ let titre = document.querySelector("#product-titre");
 let productPrice = document.querySelector("#product-price");
 let quantityProducts = document.querySelector("#lens-quantity-input");
 let lensSizeSelect = document.querySelector("#lens-size-select");
-
+var imgProduct = document.querySelector("#product-card-img");
 
 // Permet de sélectionner l'id qui est placé après id dans le lien de la page
 
@@ -59,6 +59,8 @@ btnSendToCard.addEventListener("click", (e) => {
   quantity: parseInt(quantityProducts.value),
   id: id,
   options: lensSizeSelect.value,
+  imgProduct: imgProduct.src,
+  
 };
 
   let dataTotalPrice = {
@@ -101,6 +103,7 @@ console.log(dataTotalPrice.cost);
   pushFirstNbArticles = () => {
     localStorage.setItem("nbArticlesTotal", JSON.stringify(nbArticle));
   }
+
 
 
   const popupConfirm = () => {

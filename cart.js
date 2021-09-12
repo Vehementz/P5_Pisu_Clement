@@ -21,6 +21,11 @@ else {
 
     for (j = 0; j < productSaveInLocalStorage.length; j++) {
         productSaveInLocalStorage[j] 
+        
+        let imgElement = document.createElement("img");
+        let productImg = document.querySelector("#img-category");
+        imgElement.src = productSaveInLocalStorage[j].imgProduct;
+        productImg.appendChild(imgElement);
 
         let nameElement = document.createElement("p");
         let productName = document.querySelector("#name-category");
