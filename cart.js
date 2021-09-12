@@ -2,6 +2,9 @@ let productSaveInLocalStorage = JSON.parse(localStorage.getItem("product"));
 let totalPriceInLocalStorage = parseFloat(JSON.parse(localStorage.getItem("total-cost")));
 let totalArticlesInLocalStorage = Number(JSON.parse(localStorage.getItem("nbArticlesTotal")));
 
+let nbInCart = document.querySelector("#nb-in-cart");
+nbInCart.innerHTML = totalArticlesInLocalStorage;
+
 let cartContainer = document.querySelector("#cart-container");
 
 
@@ -105,7 +108,7 @@ else {
 
                 <div class="contact-lastname">
                     <label class="contact-label-name" for="nom" name="nom" id="nom">Entrez votre nom</label>
-                    <input class="contact-name-input" type="text" name="firstName" id="nom" placeholder="Nom" required maxlength="50" pattern="[a-zA-Z\-]{2,50}">
+                    <input class="contact-name-input" type="text" name="firstName" id="nom" placeholder="Nom" required maxlength="50" pattern="[a-zA-Z\-\s]{2,50}">
                 </div>
                 
             </div>
