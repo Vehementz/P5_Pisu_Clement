@@ -10,10 +10,11 @@ let cartContainer = document.querySelector("#cart-container");
 
 if(productSaveInLocalStorage === null) {
     cartContainer.innerHTML= "Panier vide";
-    cartContainer.style.textAlign = "center";
+    cartContainer.style.marginLeft = "43%";
     cartContainer.style.fontSize = "5rem";
     cartContainer.style.marginTop = "3rem";
-    cartContainer.style.fontFamily = "Style Script, Arial"
+    cartContainer.style.fontFamily = "Style Script, Arial";
+    cartContainer.style.whiteSpace = "nowrap";
 
 }   
 else {
@@ -60,33 +61,12 @@ else {
         quantityElement.innerHTML = `Quantité : ${productSaveInLocalStorage[j].quantity}`;
         cardBodyRight.appendChild(quantityElement);
 
-
-
-
-        /*---------------- Enlever juste un article -------------- */
-
-
-    //     let btnClearArticle = document.createElement("button");
-            
-    //     let removeCategory = document.querySelector("#remove-category");
-    //     let btnClearArticleP = document.createElement("p");
-    //     btnClearArticleP.innerHTML = "Supprimer";
-    //     btnClearArticle.appendChild(btnClearArticleP);
-    //     removeCategory.appendChild(btnClearArticle);
-
-    //             btnClearArticle.addEventListener("click", (e) => {
-    //     e.preventDefault();
-    //     localStorage.removeItem(productSaveInLocalStorage[j]);   
-    //     alert("Votre article a été supprimé");
-    //     window.location.href = "cart.html"
-    // });
-
     }
 
     
 
     let nbTotalArticlesP = document.createElement("p");
-    nbTotalArticlesP.innerHTML = ` Nomber total d'articles: <span>${totalArticlesInLocalStorage}</span>`;
+    nbTotalArticlesP.innerHTML = ` Nombre total d'articles: <span>${totalArticlesInLocalStorage}</span>`;
     cartContainer.appendChild(nbTotalArticlesP);
     cartContainer.classList.add("cart-nb-total-articles")
     
@@ -107,14 +87,15 @@ else {
 
     buttonClearAll.addEventListener("click", (e) => {
         e.preventDefault();
-        localStorage.clear();    
-        alert("Le panier à été vidé");
-        window.location.href = "cart.html"
+        localStorage.removeItem('nbArticlesTotal');    
+        localStorage.removeItem('product');
+        localStorage.removeItem('total-cost');
+        document.location.reload();
     });
     
     let formSection = document.querySelector("#form-section");
     formSection.innerHTML = `<div class="contact-box-form">       
-        <form>
+        <form id="cart-form" action="post" type="submit">
             <fieldset class="contact-title-form">
                 <legend>Panier</legend>
             
@@ -126,22 +107,22 @@ else {
                 
                 <div class="contact-firstname">
                     <label class="contact-label-name"  for="prenom" name="prenom" id="prenom">Entrez votre prénom</label>
-                    <input class="contact-name-input" type="text" name="lastName" id="prenom" placeholder="Prénom" required maxlength="50" pattern="[a-zA-Z\-]{2,50}">
+                    <input class="contact-name-input" type="text" name="lastName" id="lastName" placeholder="Prénom" required maxlength="50" pattern="[a-zA-Z\-]{2,50}">
                 </div>
 
                 <div class="contact-lastname">
                     <label class="contact-label-name" for="nom" name="nom" id="nom">Entrez votre nom</label>
-                    <input class="contact-name-input" type="text" name="firstName" id="nom" placeholder="Nom" required maxlength="50" pattern="[a-zA-Z\-\s]{2,50}">
+                    <input class="contact-name-input" type="text" name="firstName" id="firstName" placeholder="Nom" required maxlength="50" pattern="[a-zA-Z\-\s]{2,50}">
                 </div>
                 
             </div>
 
             <label for="email" class="contact-label-email">Entrez votre adresse Email</label>
-            <input type="email" name="email" id="email" class="contact-email-inp" required maxlength="50" pattern="/^([a-zA-Z0-9\._-]+)@([\a-zA-Z0-9]+)\.([a-zA-Z\.]{2,8})$/" placeholder="Email">
+            <input type="email" name="email" id="email" class="contact-email-inp" required maxlength="50" pattern="^([a-zA-Z0-9_-]+)@{1}([a-z]{2,10})(\.{1})[a-z]{2,8}$" placeholder="Email">
 
 
             <label for="contact-adress" class="contact-label-adress">Adresse</label>
-            <input type="text" id="contact-adress" name="adress" class="contact-adress-inp" placeholder="12 rue des developpeurs"  pattern="^([0-9]{1,5})(\s)([a-zA-Z\.\s]*)$" required>
+            <input type="text" id="contact-adress" name="adress" class="contact-adress-inp" placeholder="12 rue des developpeurs" pattern="[a-zA-Z0-9\s,.'-]{3,100}" required>
         
             <label for="contact-city" class="contact-label-city">Ville</label>
             <input type="text" id="contact-city" name="city" class="contact-city-inp" placeholder="Paris" required pattern="[a-zA-Z]{2,20}" >
@@ -150,7 +131,7 @@ else {
             <input type="number" id="contact-postal-code" name="postal-code" class="contact-postal-code-inp" placeholder="75015" max="99999" required pattern="[0-9]{5}">
 
             
-            <button>Valider</button>
+            <button id="btn-send-form">Valider</button>
         </fieldset>
         </form>
     </div>`;
@@ -161,15 +142,18 @@ else {
 // Selection du boutton du formulaire pour envoyer au backend ultérieurement 
 // puis  enregistrement des données du formulaire en localStorage
 
-/*
-let btnSendForm = document.querySelector("#btn-send-form");
 
-btnSendForm.addEventListener("click", (e) => {
+let btnSendForm = document.querySelector("#btn-send-form");
+let cartForm = document.querySelector("#cart-form");
+
+
+
+    cartForm.addEventListener('submit', function (e) {
     e.preventDefault();
     localStorage.setItem("firstName", document.querySelector("#firstName").value);
     localStorage.setItem("lastName", document.querySelector("#lastName").value);
-    localStorage.setItem("adress", document.querySelector("#adress").value);
-    localStorage.setItem("city", document.querySelector("#city").value);
+    localStorage.setItem("adress", document.querySelector("#contact-adress").value);
+    localStorage.setItem("city", document.querySelector("#contact-city").value);
     localStorage.setItem("email", document.querySelector("#email").value);
 
     const dataFormAddToLocalStorage = {
@@ -181,14 +165,33 @@ btnSendForm.addEventListener("click", (e) => {
 
     }
 
-    const dataFormToSend = {
+    const dataFormToSend = JSON.stringify ({
         productSaveInLocalStorage,
         dataFormAddToLocalStorage,
-    }
+    })
 
-});
 
-*/ 
+       // const formData = new FormData(this);
+
+        fetch("http://localhost:3000/api/cameras/order", {
+            method: "POST",
+            headers: {
+                'content-type': "application/json"
+              },
+              mode: "cors",
+            body: dataFormToSend
+        })
+        .then(function (response) {
+            return response.json();
+        }).then(function (response) {
+            localStorage.setItem('contact', JSON.stringify(response.contact));
+            localStorage.setItem('orderId', JSON.stringify(response.orderId));
+            window.location.replace("./confirmation.html");
+          }).catch(function (error) {
+            console.log(error)
+        })
+    })
+
 
 
 
