@@ -2,131 +2,152 @@ let productSaveInLocalStorage = JSON.parse(localStorage.getItem("product"));
 let totalPriceInLocalStorage = parseFloat(JSON.parse(localStorage.getItem("total-cost")));
 let totalArticlesInLocalStorage = Number(JSON.parse(localStorage.getItem("nbArticlesTotal")));
 
-
 let nbInCart = document.querySelector("#nb-in-cart");
 nbInCart.innerHTML = totalArticlesInLocalStorage;
 
 let cartContainer = document.querySelector("#cart-container");
-
-
 let productsObj = [];
-
-
-let products = [];
-
-for (p = 0; p < productSaveInLocalStorage.length; p++) {
-
-    products.push({productName: productSaveInLocalStorage[p].name,
-    productPrice: productSaveInLocalStorage[p].price,
-    productQuantity: productSaveInLocalStorage[p].quantity,
-    productId: productSaveInLocalStorage[p].productId,
-    productImg: productSaveInLocalStorage[p].imgProduct });
-
-}
     
-console.log(products);
-
-
-
-//  products = Object.values(productsObj);
-//  console.log(products);
-
-
-
 
 if(productSaveInLocalStorage === null) {
-    cartContainer.innerHTML= "Panier vide";
-    cartContainer.style.marginLeft = "43%";
-    cartContainer.style.fontSize = "5rem";
-    cartContainer.style.marginTop = "3rem";
-    cartContainer.style.fontFamily = "Style Script, Arial";
-    cartContainer.style.whiteSpace = "nowrap";
-
+  cartContainer.innerHTML= "Panier vide";
+  cartContainer.style.marginLeft = "43%";
+  cartContainer.style.fontSize = "5rem";
+  cartContainer.style.marginTop = "3rem";
+  cartContainer.style.fontFamily = "Style Script, Arial";
+  cartContainer.style.whiteSpace = "nowrap";
 }   
 else {
-    let productCartStructure = [];
+  
+  //let productCartStructure = [];
+  for (j = 0; j < productSaveInLocalStorage.length; j++) {
+    productSaveInLocalStorage[j] 
+    
+    let cartContainer = document.querySelector("#cart-container");
 
-    for (j = 0; j < productSaveInLocalStorage.length; j++) {
-        productSaveInLocalStorage[j] 
-        
-        let cartContainer = document.querySelector("#cart-container");
+    let bodyWholeCard = document.createElement("div");
+    bodyWholeCard.classList.add("body-whole-card");
+    cartContainer.appendChild(bodyWholeCard);
 
-        let bodyWholeCard = document.createElement("div");
-        bodyWholeCard.classList.add("body-whole-card");
-        cartContainer.appendChild(bodyWholeCard);
+    let imageSide = document.createElement("div");
+    imageSide.classList.add("image-side");
+    bodyWholeCard.appendChild(imageSide);
 
-        let imageSide = document.createElement("div");
-        imageSide.classList.add("image-side");
-        bodyWholeCard.appendChild(imageSide);
+    let imgElement = document.createElement("img");
+    imgElement.classList.add("cart-img-element");
+    imgElement.src = productSaveInLocalStorage[j].imgProduct;
+    imageSide.appendChild(imgElement);
 
-        let imgElement = document.createElement("img");
-        imgElement.classList.add("cart-img-element");
-        imgElement.src = productSaveInLocalStorage[j].imgProduct;
-        imageSide.appendChild(imgElement);
-
-        let cardBodyRight = document.createElement("div");
-        cardBodyRight.classList.add("card-body-right");
-        bodyWholeCard.appendChild(cardBodyRight);
+    let cardBodyRight = document.createElement("div");
+    cardBodyRight.classList.add("card-body-right");
+    bodyWholeCard.appendChild(cardBodyRight);
 
 
-        let nameElement = document.createElement("p");
-       
-        nameElement.innerHTML = productSaveInLocalStorage[j].name;
-        nameElement.classList.add("cart-card-title");
-        cardBodyRight.appendChild(nameElement);
+    let nameElement = document.createElement("p");
+    
+    nameElement.innerHTML = productSaveInLocalStorage[j].name;
+    nameElement.classList.add("cart-card-title");
+    cardBodyRight.appendChild(nameElement);
 
-        let lensElement = document.createElement("p");
-        lensElement.innerHTML = `Lentille: ${productSaveInLocalStorage[j].options}`;
-        cardBodyRight.appendChild(lensElement);
+    let lensElement = document.createElement("p");
+    lensElement.innerHTML = `Lentille: ${productSaveInLocalStorage[j].options}`;
+    cardBodyRight.appendChild(lensElement);
 
-        let priceElement = document.createElement("p");
-        priceElement.innerHTML = `Prix : ${(productSaveInLocalStorage[j].price) *(productSaveInLocalStorage[j].quantity)} €`;
-        cardBodyRight.appendChild(priceElement);
+    let priceElement = document.createElement("p");
+    priceElement.innerHTML = `Prix : ${(productSaveInLocalStorage[j].price) *(productSaveInLocalStorage[j].quantity)} €`;
+    cardBodyRight.appendChild(priceElement);
 
-        let quantityElement = document.createElement("p");
-        quantityElement.innerHTML = `Quantité : ${productSaveInLocalStorage[j].quantity}`;
-        cardBodyRight.appendChild(quantityElement);
+    let quantityElement = document.createElement("p");
+    quantityElement.innerHTML = `Quantité : ${productSaveInLocalStorage[j].quantity}`;
+    cardBodyRight.appendChild(quantityElement);
 
+  }
+
+  let nbTotalArticlesP = document.createElement("p");
+  nbTotalArticlesP.innerHTML = ` Nombre total d'articles: <span>${totalArticlesInLocalStorage}</span>`;
+  cartContainer.appendChild(nbTotalArticlesP);
+  cartContainer.classList.add("cart-nb-total-articles")  
+  //let clearWholeCartContainer = document.querySelector("#clear-whole-cart-container");
+  let nbAndRemove = document.createElement("div");
+  nbAndRemove.classList.add("cart-nb-and-remove");
+  cartContainer.appendChild(nbAndRemove);
+
+  let buttonClearAll = document.createElement("button");
+  buttonClearAll.classList.add("btn-all");
+  buttonClearAll.innerHTML = "Vider le panier";
+  buttonClearAll.classList.add("clear-whole-cart-btn");
+
+  nbAndRemove.appendChild(buttonClearAll);
+  nbAndRemove.appendChild(nbTotalArticlesP);
+  buttonClearAll.addEventListener("click", (e) => {
+      e.preventDefault();
+      localStorage.removeItem('nbArticlesTotal');    
+      localStorage.removeItem('product');
+      localStorage.removeItem('total-cost');
+      document.location.reload();
+  });
+  
+  let formSection = document.querySelector("#form-section");
+  formSection.innerHTML = getHtml(totalPriceInLocalStorage);
+} 
+
+// Selection du boutton du formulaire pour envoyer au backend ultérieurement 
+// puis  enregistrement des données du formulaire en localStorage
+
+let btnSendForm = document.querySelector("#btn-send-form");
+let cartForm = document.querySelector("#cart-form");
+
+cartForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+    let contact = {
+      firstName: document.querySelector("#firstName").value,
+      lastName:document.querySelector("#lastName").value,
+      address: document.querySelector("#contact-adress").value,
+      city: document.querySelector("#contact-city").value,
+      email: document.querySelector("#email").value
+    }        
+    
+    let products = [];
+    // si le panier existe et il est pas vide
+    if(productSaveInLocalStorage && productSaveInLocalStorage.length > 0) {
+      for (p = 0; p < productSaveInLocalStorage.length; p++) {
+        products.push(productSaveInLocalStorage[p].productId);
+      }
     }
-
-    
-
-    let nbTotalArticlesP = document.createElement("p");
-    nbTotalArticlesP.innerHTML = ` Nombre total d'articles: <span>${totalArticlesInLocalStorage}</span>`;
-    cartContainer.appendChild(nbTotalArticlesP);
-    cartContainer.classList.add("cart-nb-total-articles")
-    
-    let clearWholeCartContainer = document.querySelector("#clear-whole-cart-container");
-
-    let nbAndRemove = document.createElement("div");
-    nbAndRemove.classList.add("cart-nb-and-remove");
-    cartContainer.appendChild(nbAndRemove);
-
-    let buttonClearAll = document.createElement("button");
-    buttonClearAll.classList.add("btn-all");
-    buttonClearAll.innerHTML = "Vider le panier";
-    buttonClearAll.classList.add("clear-whole-cart-btn");
-    
-    nbAndRemove.appendChild(buttonClearAll);
-    nbAndRemove.appendChild(nbTotalArticlesP);
-
-
-    buttonClearAll.addEventListener("click", (e) => {
-        e.preventDefault();
-        localStorage.removeItem('nbArticlesTotal');    
-        localStorage.removeItem('product');
-        localStorage.removeItem('total-cost');
-        document.location.reload();
+   
+    console.log(products);
+    console.log(contact);
+    fetch("http://localhost:3000/api/cameras/order", {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify ({
+            contact: contact,
+            products: products
+        })
+    })
+    .then(response => response.json())
+    .then((resultat) => {
+        console.log(resultat);
+        localStorage.setItem('contact', getContactFullName(resultat.contact));
+        localStorage.setItem('orderId', resultat.orderId);
+        // TODO : oublie pas de vider le panier ici
+        //window.location.replace("./confirmation.html");
+    }).catch(function (error) {
+        console.log(error);
     });
-    
-    let formSection = document.querySelector("#form-section");
-    formSection.innerHTML = `<div class="contact-box-form">       
+});
+
+function getHtml(totalPrice) {
+  return (`<div class="contact-box-form">       
         <form id="cart-form" action="post" type="submit">
             <fieldset class="contact-title-form">
                 <legend>Panier</legend>
             
                 
-                <h3 id="total-price">Montant total: ${totalPriceInLocalStorage} €</h3>
+                <h3 id="total-price">Montant total: ${totalPrice} €</h3>
                 
                 
             <div class="contact-container-name">
@@ -160,49 +181,12 @@ else {
             <button id="btn-send-form">Valider</button>
         </fieldset>
         </form>
-    </div>`;
-    
+    </div>`);
+}
 
-} 
-
-// Selection du boutton du formulaire pour envoyer au backend ultérieurement 
-// puis  enregistrement des données du formulaire en localStorage
-
-
-let btnSendForm = document.querySelector("#btn-send-form");
-let cartForm = document.querySelector("#cart-form");
-
-
-  cartForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-      let contact = {
-        firstName: document.querySelector("#firstName").value,
-        lastName:document.querySelector("#lastName").value,
-        address: document.querySelector("#contact-adress").value,
-        city: document.querySelector("#contact-city").value,
-        email: document.querySelector("#email").value
-      }        
-        console.log(contact);
-
-      fetch("http://localhost:3000/api/cameras/order", {
-          method: "POST",
-          headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify ({
-              contact: contact,
-              products: products
-          })
-      })
-      .then(function (response) {
-          localStorage.setItem('contact', JSON.stringify(response.contact));
-          localStorage.setItem('orderId', JSON.stringify(response.orderId));
-          // window.location.replace("./confirmation.html");
-      }).catch(function (error) {
-          console.log(error);
-      });
-  });
+function getContactFullName(contact) {
+  return contact.firstName + ' ' + contact.lastName;
+}
 
   
 
