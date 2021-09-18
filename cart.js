@@ -9,6 +9,29 @@ nbInCart.innerHTML = totalArticlesInLocalStorage;
 let cartContainer = document.querySelector("#cart-container");
 
 
+let productsObj = [];
+
+
+let products = [];
+
+for (p = 0; p < productSaveInLocalStorage.length; p++) {
+
+    products.push({productName: productSaveInLocalStorage[p].name,
+    productPrice: productSaveInLocalStorage[p].price,
+    productQuantity: productSaveInLocalStorage[p].quantity,
+    productId: productSaveInLocalStorage[p].productId,
+    productImg: productSaveInLocalStorage[p].imgProduct });
+
+}
+    
+console.log(products);
+
+
+
+//  products = Object.values(productsObj);
+//  console.log(products);
+
+
 
 
 if(productSaveInLocalStorage === null) {
@@ -150,86 +173,36 @@ let btnSendForm = document.querySelector("#btn-send-form");
 let cartForm = document.querySelector("#cart-form");
 
 
-// let contact = {
-//     firstName: localStorage.setItem("firstName", document.querySelector("#firstName").value),
-//     lastName: localStorage.setItem("lastName", document.querySelector("#lastName").value),
-//     adress: localStorage.setItem("adress", document.querySelector("#contact-adress").value),
-//     city: localStorage.setItem("city", document.querySelector("#contact-city").value),
-//     email: localStorage.setItem("email", document.querySelector("#email").value),
-// }
-
-
-
-
-
-    cartForm.addEventListener('submit', function (e) {
+  cartForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    
-    let contact = {
+      let contact = {
         firstName: document.querySelector("#firstName").value,
         lastName:document.querySelector("#lastName").value,
-        adress: document.querySelector("#contact-adress").value,
+        address: document.querySelector("#contact-adress").value,
         city: document.querySelector("#contact-city").value,
-        email: document.querySelector("#email").value,
-    }
-    
-    
+        email: document.querySelector("#email").value
+      }        
+        console.log(contact);
 
-    let products = [];
-
-    for (p = 0; p < productSaveInLocalStorage.length; p++) {
-        // productName = productSaveInLocalStorage[p].name;
-        // productPrice = productSaveInLocalStorage[p].price;
-        // productQuantity = productSaveInLocalStorage[p].quantity;
-        productId = productSaveInLocalStorage[p].productId;  
-        products.push(productId);    
-    }
-
-        // products.push(productName);
-        // products.push(productPrice);
-        // products.push(productQuantity);
-        
-        console.log(products);
-    
-       // for (k = 0; k < productSaveInLocalStorage.length; k++) {
-//     let importantCarac = { 
-//         name: productSaveInLocalStorage[k].name,
-//         price: productSaveInLocalStorage[k].price,
-//         quantity: productSaveInLocalStorage[k].quantity,
-//         id: productSaveInLocalStorage[k].id
-        
-// }; console.log(importantCarac);}
- 
-
-    // const dataFormAddToLocalStorage = {
-    //     firstName: localStorage.getItem("firstName"),
-    //     lastName: localStorage.getItem("lastName"),
-    //     adress: localStorage.getItem("adress"),
-    //     city: localStorage.getItem("city"),
-    //     email: localStorage.getItem("email"),
-    // }
-
-
-        fetch("http://localhost:3000/api/cameras/order", {
-            method: "POST",
-            headers: {
-                'content-type': "application/json"
-              },
-            body: JSON.stringify({
-                contact: contact,
-                
-              }),
+      fetch("http://localhost:3000/api/cameras/order", {
+          method: "POST",
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify ({
+              contact: contact,
               products: products
-        })
-
-        .then(function (response) {
-            localStorage.setItem('contact', JSON.stringify(response.contact));
-            localStorage.setItem('orderId', JSON.stringify(response.orderId));
-            window.location.replace("./confirmation.html");
-          }).catch(function (error) {
-            console.log(error)
-        })
-    })
+          })
+      })
+      .then(function (response) {
+          localStorage.setItem('contact', JSON.stringify(response.contact));
+          localStorage.setItem('orderId', JSON.stringify(response.orderId));
+          // window.location.replace("./confirmation.html");
+      }).catch(function (error) {
+          console.log(error);
+      });
+  });
 
   
 
