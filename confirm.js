@@ -21,7 +21,7 @@ function display (){
         <p>Nous avons bien reçu votre commande N° ${orderId} </br>
         D'un montant de :${prixTotal}  </br>
         </p>
-        Un email vous sera envoyer à l'adresse : </br> ${contact.email} a l'envoi de votre commande  
+       <p> Un email vous sera envoyer à l'adresse : ${contact.email} </p> 
     `
 };
 

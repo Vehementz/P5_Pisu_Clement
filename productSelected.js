@@ -57,7 +57,7 @@ btnSendToCard.addEventListener("click", (e) => {
   name: titre.innerHTML,
   price: parseFloat(productPrice.innerHTML),
   quantity: parseInt(quantityProducts.value),
-  id: id,
+  productId: id,
   options: lensSizeSelect.value,
   imgProduct: imgProduct.src,
   
@@ -68,10 +68,6 @@ btnSendToCard.addEventListener("click", (e) => {
   }
 
   let nbArticle = Number(dataProductToCart.quantity);
-
-
-console.log(dataTotalPrice.cost);
-
 
   let productSaveInLocalStorage = JSON.parse(localStorage.getItem("product"));
   

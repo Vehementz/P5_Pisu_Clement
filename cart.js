@@ -2,10 +2,13 @@ let productSaveInLocalStorage = JSON.parse(localStorage.getItem("product"));
 let totalPriceInLocalStorage = parseFloat(JSON.parse(localStorage.getItem("total-cost")));
 let totalArticlesInLocalStorage = Number(JSON.parse(localStorage.getItem("nbArticlesTotal")));
 
+
 let nbInCart = document.querySelector("#nb-in-cart");
 nbInCart.innerHTML = totalArticlesInLocalStorage;
 
 let cartContainer = document.querySelector("#cart-container");
+
+
 
 
 if(productSaveInLocalStorage === null) {
@@ -122,7 +125,7 @@ else {
 
 
             <label for="contact-adress" class="contact-label-adress">Adresse</label>
-            <input type="text" id="contact-adress" name="adress" class="contact-adress-inp" placeholder="12 rue des developpeurs" pattern="[a-zA-Z0-9\s,.'-]{3,100}" required>
+            <input type="text" id="contact-adress" name="adress" class="contact-adress-inp" placeholder="12 rue des developpeurs" required>
         
             <label for="contact-city" class="contact-label-city">Ville</label>
             <input type="text" id="contact-city" name="city" class="contact-city-inp" placeholder="Paris" required pattern="[a-zA-Z]{2,20}" >
@@ -147,43 +150,79 @@ let btnSendForm = document.querySelector("#btn-send-form");
 let cartForm = document.querySelector("#cart-form");
 
 
+// let contact = {
+//     firstName: localStorage.setItem("firstName", document.querySelector("#firstName").value),
+//     lastName: localStorage.setItem("lastName", document.querySelector("#lastName").value),
+//     adress: localStorage.setItem("adress", document.querySelector("#contact-adress").value),
+//     city: localStorage.setItem("city", document.querySelector("#contact-city").value),
+//     email: localStorage.setItem("email", document.querySelector("#email").value),
+// }
+
+
+
+
 
     cartForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    localStorage.setItem("firstName", document.querySelector("#firstName").value);
-    localStorage.setItem("lastName", document.querySelector("#lastName").value);
-    localStorage.setItem("adress", document.querySelector("#contact-adress").value);
-    localStorage.setItem("city", document.querySelector("#contact-city").value);
-    localStorage.setItem("email", document.querySelector("#email").value);
+    
+    let contact = {
+        firstName: document.querySelector("#firstName").value,
+        lastName:document.querySelector("#lastName").value,
+        adress: document.querySelector("#contact-adress").value,
+        city: document.querySelector("#contact-city").value,
+        email: document.querySelector("#email").value,
+    }
+    
+    
 
-    const dataFormAddToLocalStorage = {
-        firstName: localStorage.getItem("firstName"),
-        lastName: localStorage.getItem("lastName"),
-        adress: localStorage.getItem("adress"),
-        city: localStorage.getItem("city"),
-        email: localStorage.getItem("email"),
+    let products = [];
 
+    for (p = 0; p < productSaveInLocalStorage.length; p++) {
+        // productName = productSaveInLocalStorage[p].name;
+        // productPrice = productSaveInLocalStorage[p].price;
+        // productQuantity = productSaveInLocalStorage[p].quantity;
+        productId = productSaveInLocalStorage[p].productId;  
+        products.push(productId);    
     }
 
-    const dataFormToSend = JSON.stringify ({
-        productSaveInLocalStorage,
-        dataFormAddToLocalStorage,
-    })
+        // products.push(productName);
+        // products.push(productPrice);
+        // products.push(productQuantity);
+        
+        console.log(products);
+    
+       // for (k = 0; k < productSaveInLocalStorage.length; k++) {
+//     let importantCarac = { 
+//         name: productSaveInLocalStorage[k].name,
+//         price: productSaveInLocalStorage[k].price,
+//         quantity: productSaveInLocalStorage[k].quantity,
+//         id: productSaveInLocalStorage[k].id
+        
+// }; console.log(importantCarac);}
+ 
 
+    // const dataFormAddToLocalStorage = {
+    //     firstName: localStorage.getItem("firstName"),
+    //     lastName: localStorage.getItem("lastName"),
+    //     adress: localStorage.getItem("adress"),
+    //     city: localStorage.getItem("city"),
+    //     email: localStorage.getItem("email"),
+    // }
 
-       // const formData = new FormData(this);
 
         fetch("http://localhost:3000/api/cameras/order", {
             method: "POST",
             headers: {
                 'content-type': "application/json"
               },
-              mode: "cors",
-            body: dataFormToSend
+            body: JSON.stringify({
+                contact: contact,
+                
+              }),
+              products: products
         })
+
         .then(function (response) {
-            return response.json();
-        }).then(function (response) {
             localStorage.setItem('contact', JSON.stringify(response.contact));
             localStorage.setItem('orderId', JSON.stringify(response.orderId));
             window.location.replace("./confirmation.html");
@@ -192,7 +231,8 @@ let cartForm = document.querySelector("#cart-form");
         })
     })
 
+  
 
 
 
-
+    // pattern="[a-zA-Z0-9\s,.'-]{3,100}"
