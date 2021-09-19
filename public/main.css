@@ -32,7 +32,7 @@ nav a {
   position: relative;
   color: black;
   font-size: 3.5rem;
-  margin: auto 5rem; 
+  margin: auto 12%; 
   font-family: 'Style Script', cursive;
   font-weight: 700;
   white-space: nowrap;
@@ -64,71 +64,7 @@ h1 {
   object-position: 0 30%;
 }
 
-.card-container {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: auto;
-}
 
-.camera-card {
-  height: 20vh;
-  width: 30%;
-  border-radius: 5% 5% 0 0;
-  margin: 0 2rem 40vh 2rem;
-  min-width: 30rem;
-}
-
-.camera-card:hover {
-  transform: scale(1.02);
-}
-
-.camera-card img {
-  width: 100%;
-  height: 25rem;
-  margin: 0;
-  border-radius: 5% 5% 0 0;
-}
-
-
-.container-description {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #45caff;
-  margin-top: -.5rem;
-  border-radius: 0 0 5% 5%;
-  
-}
-
-
-.container-description p {
-  text-align: center;
-  height: 3rem;
-  margin: 1rem 0 0 0;
-
-}
-
-.contenair-description-name {
-  color: rgb(43, 1, 43);
-  font-size: 1.5rem;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.container-description-price {
-  font-size: 1.2rem;
-}
-
-.detail-link {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  font-style: italic;
-  text-decoration: underline;
-  
-}
 
 footer {
   height: 10vh;
@@ -146,7 +82,7 @@ footer p {
   font-style: italic;
 }
 
-
+/* Page Product.html */ 
 
 .product-container {
   display: flex;
@@ -573,3 +509,25 @@ margin: auto;
 
 }
 
+
+
+/* Page de confirmation */ 
+
+#confirm-section {
+  text-align: center;
+  font-size: clamp(1.3rem, 2vw, 2rem);
+  margin: 0 3rem;
+  line-height: 4rem;
+  
+}
+
+
+/* responsive */ 
+
+@media (min-width: 800px) {
+
+nav a {
+  margin: 2.5rem 5rem;
+}
+
+}

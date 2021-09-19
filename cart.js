@@ -99,6 +99,10 @@ let cartForm = document.querySelector("#cart-form");
 
 cartForm.addEventListener('submit', function (e) {
   e.preventDefault();
+
+  localStorage.removeItem("contact");
+  localStorage.removeItem("orderId");
+  localStorage.removeItem("email");
     let contact = {
       firstName: document.querySelector("#firstName").value,
       lastName:document.querySelector("#lastName").value,
@@ -131,10 +135,16 @@ cartForm.addEventListener('submit', function (e) {
     .then(response => response.json())
     .then((resultat) => {
         console.log(resultat);
-        localStorage.setItem('contact', getContactFullName(resultat.contact));
+        // localStorage.setItem('contact', getContactFullName(resultat.contact));
+        localStorage.setItem('contactFirstName', resultat.contact.firstName);
+        localStorage.setItem('contactLastName', resultat.contact.lastName);
+        localStorage.setItem('contactEmail', resultat.contact.email);
+        console.log(resultat.orderId);
         localStorage.setItem('orderId', resultat.orderId);
-        // TODO : oublie pas de vider le panier ici
-        //window.location.replace("./confirmation.html");
+        
+        localStorage.removeItem('nbArticlesTotal');    
+        localStorage.removeItem('product');
+        window.location.replace("./confirmation.html");
     }).catch(function (error) {
         console.log(error);
     });
@@ -184,9 +194,10 @@ function getHtml(totalPrice) {
     </div>`);
 }
 
-function getContactFullName(contact) {
-  return contact.firstName + ' ' + contact.lastName;
-}
+
+// function getContactFullName(contact) {
+//   return contact.firstName + ' ' + contact.lastName;
+// }
 
   
 

@@ -1,11 +1,13 @@
 //RECUPERATION DES DONNEES DE L URL
-let paramsUrl = new URL(window.location).searchParams;
+// let paramsUrl = new URL(window.location).searchParams;
 
-let orderId = paramsUrl.get("orderId");
+// let orderId = paramsUrl.get("orderId");
 
 //RECUPERATION DES DONNEES CONTACT
-let contact = JSON.parse(localStorage.getItem("contact"));
-
+let contactFirstName = localStorage.getItem("contactFirstName");
+let contactLastName = localStorage.getItem("contactLastName");
+let contactEmail = localStorage.getItem("contactEmail");
+let orderId = localStorage.getItem("orderId");
 // RECUPERATION DU PRIX TOTAL
 let totalCost = JSON.parse(localStorage.getItem("total-cost"));
 
@@ -14,15 +16,16 @@ confirmSection = document.querySelector("#confirm-section");
 
 function display (){
     confirmSection.innerHTML = `
+    <div class="confirm-container>
         <p>
-        Merci  ${contact.firstName } ${contact.lastName} 
+        Merci ${contactFirstName} ${contactLastName} 
         </p>
-        <hr>
-        <p>Nous avons bien reçu votre commande N° ${orderId} </br>
-        D'un montant de :${prixTotal}  </br>
+        <p>Nous avons bien reçu votre commande N° ${orderId} d'un montant de : ${totalCost} €</br>
         </p>
-       <p> Un email vous sera envoyer à l'adresse : ${contact.email} </p> 
-    `
+       <p> Un email vous sera envoyer à l'adresse : ${contactEmail} </p> 
+    </div>`
 };
 
 display();
+
+localStorage.removeItem('total-cost');
