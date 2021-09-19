@@ -1,0 +1,246 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  list-style-type: none; 
+  color: inherit;
+}
+
+
+html {
+  font-size: 62.5%;
+}
+
+
+body {
+  background: gray;
+}
+
+nav {
+  height: 15vh;
+  /* background: linear-gradient(to left, #ff1b6b, #45caff); */
+  background: linear-gradient(to right, #485796, #45caff);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  
+  
+}
+
+#cart-link-container {
+  position: relative;
+  margin-right: 10%;
+}
+
+nav a {
+  position: relative;
+  color: black;
+  font-size: 3.5rem;
+  /* margin: auto 12%;  */
+  font-family: 'Style Script', cursive;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+#link-to-product {
+ margin: auto 0 auto 0
+}
+
+#cart-link-container {
+  margin-top: 2.3rem;
+  margin-left: 2rem;
+}
+
+#nb-in-cart {
+  position: absolute;
+  font-size: 2rem;
+  bottom: 3.8rem;
+  left: 8.5rem;
+  background-color: blanchedalmond;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+}
+
+h1 {
+  font-size: 4.5rem;
+  text-align: center;
+  margin: 3rem auto 0 auto;
+  color: #45caff;
+  font-family: 'Style Script', cursive;
+  margin-bottom: 3rem;
+}
+
+.jumbotron img {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  object-position: 0 30%;
+}
+
+
+footer {
+  height: 10vh;
+  width: 100%;
+  background: linear-gradient(to left, #485796, #45caff);
+  margin-top: 5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  font-size: 2.3rem;
+  font-style: italic;
+}
+
+
+
+/* Page Product.html */ 
+
+.product-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#product-card-container {
+  width: clamp(30rem,45%, 45rem);
+  height: 80%;
+  border-radius: 10% 10% 10% 10%;
+  border: 5px solid rgb(235, 211, 149);
+  padding: 0.5rem;
+}
+
+#product-card-img {
+  height: 20rem;
+  width: 100%;
+  border-radius: 15% 15% 0 0;
+}
+
+#product-container-description {
+  display: flex;
+  flex-direction: column;
+  
+  
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+#name-price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  
+}
+
+#product-titre {
+  font-family: 'Mate SC', serif;
+  font-size: 2rem;
+  color: #ecf9fd;
+}
+
+#product-price {
+  font-size: 2rem;
+  
+}
+
+#product-description {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+
+#product-card-quantity {
+  margin-top: 2rem;
+}
+
+#product-card-quantity input, 
+#product-card-size {
+  width: 4rem;
+  text-align: center;
+}
+
+#product-card-size {
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.product-card-size-form {
+  display: flex;
+  flex-direction: row;
+}
+
+#lens-quantity-label,
+#lens-quantity-size {
+  font-size: 1.3rem;
+  margin: 1rem 0;
+}
+
+#lens-quantity-size {
+  position: relative;
+  top: 0.3rem;
+}
+
+#lens-size-select {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-left: 23%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#product-add-to-cart-btn {
+  margin: 2rem auto;
+  padding: 1.2rem 0;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  width: 30%;
+  box-shadow: 1px 0px 0px 4px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:5px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size: 1.6rem;
+	text-decoration:none;
+	text-shadow:0px 1px 2px #283966;
+}
+
+#product-add-to-cart-btn:hover {
+  background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+
+#product-add-to-cart-btn:active {
+	position:relative;
+	top:1px;
+}
+
+#product-add-to-cart {
+  cursor: pointer;
+}
+
+
+
+@media (min-width: 800px) {
+
+  #cart-link-container {
+    margin-top: 2.3rem;
+    left: 6%;
+  }
+    }

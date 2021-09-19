@@ -6,7 +6,7 @@ let resultatAllProduct;
 
 function getCameras() {
 fetch(urlApi)
-  .then(function(res) {
+  .then(function(res) { 
     if (res.ok) {
       return res.json();
     }

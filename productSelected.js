@@ -2,7 +2,7 @@ let titre = document.querySelector("#product-titre");
 let productPrice = document.querySelector("#product-price");
 let quantityProducts = document.querySelector("#lens-quantity-input");
 let lensSizeSelect = document.querySelector("#lens-size-select");
-
+var imgProduct = document.querySelector("#product-card-img");
 
 // Permet de sélectionner l'id qui est placé après id dans le lien de la page
 
@@ -57,8 +57,10 @@ btnSendToCard.addEventListener("click", (e) => {
   name: titre.innerHTML,
   price: parseFloat(productPrice.innerHTML),
   quantity: parseInt(quantityProducts.value),
-  id: id,
+  productId: id,
   options: lensSizeSelect.value,
+  imgProduct: imgProduct.src,
+  
 };
 
   let dataTotalPrice = {
@@ -66,10 +68,6 @@ btnSendToCard.addEventListener("click", (e) => {
   }
 
   let nbArticle = Number(dataProductToCart.quantity);
-
-
-console.log(dataTotalPrice.cost);
-
 
   let productSaveInLocalStorage = JSON.parse(localStorage.getItem("product"));
   
@@ -101,6 +99,7 @@ console.log(dataTotalPrice.cost);
   pushFirstNbArticles = () => {
     localStorage.setItem("nbArticlesTotal", JSON.stringify(nbArticle));
   }
+
 
 
   const popupConfirm = () => {
