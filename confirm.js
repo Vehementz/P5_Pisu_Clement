@@ -16,14 +16,14 @@ confirmSection = document.querySelector("#confirm-section");
 
 function display (){
     confirmSection.innerHTML = `
-    <div class="confirm-container>
+    
         <p>
         Merci ${contactFirstName} ${contactLastName} 
         </p>
         <p>Nous avons bien reçu votre commande N° ${orderId} d'un montant de : ${totalCost} €</br>
         </p>
        <p> Un email vous sera envoyer à l'adresse : ${contactEmail} </p> 
-    </div>`
+    `
 };
 
 display();

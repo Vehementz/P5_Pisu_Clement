@@ -144,7 +144,7 @@ cartForm.addEventListener('submit', function (e) {
         
         localStorage.removeItem('nbArticlesTotal');    
         localStorage.removeItem('product');
-        window.location.replace("./confirmation.html");
+        // window.location.replace("./confirmation.html");
     }).catch(function (error) {
         console.log(error);
     });
