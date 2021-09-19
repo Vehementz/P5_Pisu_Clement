@@ -10,7 +10,7 @@ let contactEmail = localStorage.getItem("contactEmail");
 let orderId = localStorage.getItem("orderId");
 // RECUPERATION DU PRIX TOTAL
 let totalCost = JSON.parse(localStorage.getItem("total-cost"));
-
+console.log(totalCost);
 // AFFICHAGE HTML
 confirmSection = document.querySelector("#confirm-section");
 
@@ -27,5 +27,4 @@ function display (){
 };
 
 display();
-
-localStorage.removeItem('total-cost');
+console.log(display);
