@@ -105,13 +105,14 @@ footer p {
   flex-wrap: wrap;
   margin: auto auto;
   
+  
 }
 
 .camera-card {
-  height: 20vh;
+  height: 40rem;
   width: 30%;
   border-radius: 5% 5% 0 0;
-  margin: 0 auto 40vh auto;
+  margin: 0 auto  auto;
   min-width: 30rem;
 }
 
@@ -181,10 +182,19 @@ footer p {
 }
 
 
-@media (min-width: 800px) {
+@media (min-width: 700px) {
 
   #cart-link-container {
     margin-top: 2.3rem;
     left: 6%;
   }
+
+  .camera-card {
+    height: 40rem;
+    width: 30%;
+    border-radius: 5% 5% 0 0;
+    margin: 0 auto 3rem auto;
+    min-width: 30rem;
+  }
+
     }
