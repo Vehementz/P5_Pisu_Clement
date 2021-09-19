@@ -50,7 +50,7 @@ nav a {
 
 #cart-link-container {
   margin-top: 2.3rem;
-  margin-left: 2rem;
+  left: 8rem;
 }
 
 #nb-in-cart {
@@ -384,10 +384,50 @@ margin: auto;
   background: radial-gradient(circle, rgba(163,131,7,1) 0%, rgba(241,238,234,1) 150%);
 }
 
-@media (min-width: 800px) {
+
+
+
+@media (max-width: 800px) {
+
+  #cart-container {
+    width: 100%;
+  }
+
+  .body-whole-card {
+    width: 100%;
+  }
 
   #cart-link-container {
     margin-top: 2.3rem;
-    left: 6%;
+    left: 0rem;
+    margin-left: 3rem;
+  }
+
+  .cart-and-form-container {
+    flex-direction: column;
+    margin: auto;
+  }
+
+  #cart-container {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+  }
+
+  #form-section {
+    margin: 8rem auto 0 auto;
+    
+  }
+
+  .contact-box-form {
+    margin: 2rem auto 0 auto;
+  }
+
+  #form-section {
+    width: 90%;
   }
     }
+    
+  
+
+  
