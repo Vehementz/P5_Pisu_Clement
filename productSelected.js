@@ -10,6 +10,7 @@ let params = (new URL(document.location)).searchParams;
 let id = params.get('id'); 
 
 
+// Récupération de l'article concerné avec les différents atributs comme le nom du produit son image etc...
 
 $(document).ready(function() {
 
@@ -49,6 +50,8 @@ $(document).ready(function() {
     });
 
 
+// Selectionne les caractéristiques du produit pour ensuite les enregistrer dans le localStorage
+
 const btnSendToCard = document.querySelector("#product-add-to-cart-btn");
 btnSendToCard.addEventListener("click", (e) => {
   e.preventDefault();
@@ -76,7 +79,7 @@ btnSendToCard.addEventListener("click", (e) => {
     localStorage.setItem("product", JSON.stringify(productSaveInLocalStorage));
   }
   
-  
+
   let pushTotalCost = () => {
     valueJson = JSON.parse(localStorage.getItem("total-cost"));
     console.log(valueJson);
@@ -102,6 +105,8 @@ btnSendToCard.addEventListener("click", (e) => {
 
 
 
+
+
   const popupConfirm = () => {
     if(window.confirm(`${dataProductToCart.name} lentille ${dataProductToCart.options} a été ajouté au panier. OK pour consulter le panier, ANNULER pour retourner à l'accueil`)) {
       window.location.href = "cart.html";
@@ -109,6 +114,10 @@ btnSendToCard.addEventListener("click", (e) => {
       window.location.href = "home.html";
     }
   }
+
+// si il y a dejà un article alors le produit est directement ajouté au localStorage
+// et il y a calcul du nouveau prix total
+// sinon productSaveInLocalStorage est initialisé et il y a juste l'ajout du prix de l'article
 
   if (productSaveInLocalStorage) {
     pushToLocalStorage();

@@ -9,6 +9,10 @@ let cartContainer = document.querySelector("#cart-container");
 let productsObj = [];
     
 
+// Si il n'y a pas de produit alors il est écrit "Panier vide" sur la page.
+// Sinon il y a une section avec les articles qui ont été ajoutés au panier avec leurs photos, 
+// nom, lentille selectionné prix et quantités.
+
 if(productSaveInLocalStorage === null) {
   cartContainer.innerHTML= "Panier vide";
   cartContainer.style.marginLeft = "43%";
@@ -19,7 +23,8 @@ if(productSaveInLocalStorage === null) {
 }   
 else {
   
-  //let productCartStructure = [];
+
+
   for (j = 0; j < productSaveInLocalStorage.length; j++) {
     productSaveInLocalStorage[j] 
     
@@ -63,11 +68,12 @@ else {
 
   }
 
+// 
+
   let nbTotalArticlesP = document.createElement("p");
   nbTotalArticlesP.innerHTML = ` Nombre total d'articles: <span>${totalArticlesInLocalStorage}</span>`;
   cartContainer.appendChild(nbTotalArticlesP);
   cartContainer.classList.add("cart-nb-total-articles")  
-  //let clearWholeCartContainer = document.querySelector("#clear-whole-cart-container");
   let nbAndRemove = document.createElement("div");
   nbAndRemove.classList.add("cart-nb-and-remove");
   cartContainer.appendChild(nbAndRemove);
@@ -87,12 +93,13 @@ else {
       document.location.reload();
   });
   
+
+// Permet d'appeler la fonction getHtml pour faire apparaitre le formulaire de contact
   let formSection = document.querySelector("#form-section");
   formSection.innerHTML = getHtml(totalPriceInLocalStorage);
 } 
 
 // Selection du boutton du formulaire pour envoyer au backend ultérieurement 
-// puis  enregistrement des données du formulaire en localStorage
 
 let btnSendForm = document.querySelector("#btn-send-form");
 let cartForm = document.querySelector("#cart-form");
@@ -111,16 +118,21 @@ cartForm.addEventListener('submit', function (e) {
       email: document.querySelector("#email").value
     }        
     
+ // Si il y a des produits dans le panier
+// on ajoute les id des produits ajoutés au panier dans le tableau "products".
+
+
     let products = [];
-    // si le panier existe et il est pas vide
+   
     if(productSaveInLocalStorage && productSaveInLocalStorage.length > 0) {
       for (p = 0; p < productSaveInLocalStorage.length; p++) {
         products.push(productSaveInLocalStorage[p].productId);
       }
     }
    
-    console.log(products);
-    console.log(contact);
+    // On envoie le formulaire comprenant les informations de contact et les
+    // id des produits concernés au back-end
+
     fetch("http://localhost:3000/api/cameras/order", {
         method: "POST",
         headers: {
@@ -132,10 +144,13 @@ cartForm.addEventListener('submit', function (e) {
             products: products
         })
     })
+
+    // recupération des données renvoyées par le back-end
+    // et enregistrement dans le localStorage des différentes informations renvoyés
+
     .then(response => response.json())
     .then((resultat) => {
         console.log(resultat);
-        // localStorage.setItem('contact', getContactFullName(resultat.contact));
         localStorage.setItem('contactFirstName', resultat.contact.firstName);
         localStorage.setItem('contactLastName', resultat.contact.lastName);
         localStorage.setItem('contactEmail', resultat.contact.email);
@@ -149,6 +164,9 @@ cartForm.addEventListener('submit', function (e) {
         console.log(error);
     });
 });
+
+// fonction getHtml appelé plus haut, qui permet d'afficher le formulaire
+// d'informations pour le payement
 
 function getHtml(totalPrice) {
   return (`<div class="contact-box-form">       
@@ -195,12 +213,3 @@ function getHtml(totalPrice) {
 }
 
 
-// function getContactFullName(contact) {
-//   return contact.firstName + ' ' + contact.lastName;
-// }
-
-  
-
-
-
-    // pattern="[a-zA-Z0-9\s,.'-]{3,100}"

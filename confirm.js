@@ -1,17 +1,15 @@
-//RECUPERATION DES DONNEES DE L URL
-// let paramsUrl = new URL(window.location).searchParams;
+//Récupération des données de contact, de l'id de la commande et du prix
 
-// let orderId = paramsUrl.get("orderId");
 
-//RECUPERATION DES DONNEES CONTACT
 let contactFirstName = localStorage.getItem("contactFirstName");
 let contactLastName = localStorage.getItem("contactLastName");
 let contactEmail = localStorage.getItem("contactEmail");
 let orderId = localStorage.getItem("orderId");
-// RECUPERATION DU PRIX TOTAL
 let totalCost = JSON.parse(localStorage.getItem("total-cost"));
 console.log(totalCost);
-// AFFICHAGE HTML
+
+// Affichage d'un message remerciant le client
+// avec un récapitulatif des différentes informations de la commande
 confirmSection = document.querySelector("#confirm-section");
 
 function display (){
@@ -27,4 +25,3 @@ function display (){
 };
 
 display();
-console.log(display);

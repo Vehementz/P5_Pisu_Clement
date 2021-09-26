@@ -4,6 +4,8 @@ let cameraContainer = document.querySelector(".card-container");
 let resultatAllProduct;
 
 
+// Récupération des ressources de l'api pour recevoir toutes les caméras
+
 function getCameras() {
 fetch(urlApi)
   .then(function(res) { 
@@ -11,6 +13,9 @@ fetch(urlApi)
       return res.json();
     }
   })
+
+
+// si il y a une erreur celà sera communiqué à l'utilisateur qu'une erreur c'est produite 
 
   .catch(function(err) {
     cameraContainer.innerHTML = "Nous sommes désolés une erreur c'est produite";
@@ -20,7 +25,7 @@ fetch(urlApi)
   
   .then(function(data) {
 
-
+// Permet de créer une carte avec différents attributs pour chacun des produits de l'api
 
     for(let i = 0; i < data.length; i++) {
 
@@ -66,6 +71,8 @@ fetch(urlApi)
   })
 
 }
+
+// on appele la fonction getCameras()
 
 getCameras();
 
