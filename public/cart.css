@@ -19,12 +19,13 @@ body {
 }
 
 nav {
-  height: 15vh;
+  height: 12rem;
   /* background: linear-gradient(to left, #ff1b6b, #45caff); */
   background: linear-gradient(to right, #485796, #45caff);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  position: relative;
   
   
 }
@@ -32,6 +33,12 @@ nav {
 #cart-link-container {
   position: relative;
   margin-right: 10%;
+}
+
+
+#cart-link-container a{
+  top: 3.2rem;
+  margin-left: 2rem;
 }
 
 nav a {
@@ -45,22 +52,20 @@ nav a {
 }
 
 #link-to-product {
- margin: auto 0 auto 0
-}
-
-#cart-link-container {
-  margin-top: 2.3rem;
-  left: 8rem;
+  position: relative;
+  margin: auto 0 auto 0;
+ 
 }
 
 #nb-in-cart {
   position: absolute;
   font-size: 2rem;
-  bottom: 3.8rem;
-  left: 8.5rem;
+  bottom: 5rem;
+  left: 11rem;
   background-color: blanchedalmond;
   padding: 0.3rem 0.6rem;
   border-radius: 3px;
+  width: 2.5rem;
 }
 
 h1 {
