@@ -121,7 +121,9 @@ cartForm.addEventListener('submit', function (e) {
    
     console.log(products);
     console.log(contact);
-    fetch("http://localhost:3000/api/cameras/order", {
+    // fetch("http://localhost:3000/api/cameras/order
+   
+    fetch(" https://onirocoback.herokuapp.com/api/cameras/order", {
         method: "POST",
         headers: {
             'Accept': 'application/json',

@@ -15,7 +15,8 @@ $(document).ready(function() {
 
   let queryString = window.location.search;
   let urlSearchParams = new URLSearchParams(queryString);
-  $.get(`http://localhost:3000/api/cameras/${urlSearchParams.get("id")}`,function(response) { 
+
+  $.get(` https://onirocoback.herokuapp.com/api/cameras/${urlSearchParams.get("id")}`,function(response) { 
       
       
       titre.innerHTML = response.name;
