@@ -64,10 +64,29 @@ fetch(urlApi)
       detailLink.classList.add("detail-link");
       
 }
+
+let EmptyContentAfter =  document.querySelector(".card-container");
+EmptyContentAfter.insertAdjacentHTML('beforeend', `
+            <i class="camera-card">
+             
+            <i>
+
+            <i class="camera-card">
+             
+            <i>
+
+            <i class="camera-card">
+             
+            <i>
+`);
+
     
   })
 
-}
+
+};
+
+
 
 getCameras();
 
