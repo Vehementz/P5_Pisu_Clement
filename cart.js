@@ -65,6 +65,7 @@ else {
 
   let nbTotalArticlesP = document.createElement("p");
   nbTotalArticlesP.innerHTML = ` Nombre total d'articles: <span>${totalArticlesInLocalStorage}</span>`;
+  nbTotalArticlesP.classList.add("text-total-articles")
   cartContainer.appendChild(nbTotalArticlesP);
   cartContainer.classList.add("cart-nb-total-articles")  
   //let clearWholeCartContainer = document.querySelector("#clear-whole-cart-container");

@@ -67,15 +67,15 @@ fetch(urlApi)
 
 let EmptyContentAfter =  document.querySelector(".card-container");
 EmptyContentAfter.insertAdjacentHTML('beforeend', `
-            <i class="camera-card">
+            <i class="camera-card knit-card">
              
             <i>
 
-            <i class="camera-card">
+            <i class="camera-card knit-card">
              
             <i>
 
-            <i class="camera-card">
+            <i class="camera-card knit-card">
              
             <i>
 `);
