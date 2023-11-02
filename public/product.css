@@ -15,7 +15,7 @@ html {
 
 
 body {
-  background: gray;
+  background: rgb(255, 255, 255);
 }
 
 
@@ -23,30 +23,14 @@ body {
 nav {
   height: 12rem;
   /* background: linear-gradient(to left, #ff1b6b, #45caff); */
-  background: linear-gradient(to right, #485796, #45caff);
+  background: linear-gradient(to right, #eaeaea, #ffffff);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   position: relative;
-  
-  
+  border-bottom: 1px solid black;
 }
 
-.product_page {
-  min-height:  75vh;
-  margin-top: 8rem;
-}
-
-#cart-link-container {
-  position: relative;
-  margin-right: 10%;
-}
-
-
-#cart-link-container a{
-  top: 3.2rem;
-  margin-left: 2rem;
-}
 
 nav a {
   position: relative;
@@ -58,17 +42,43 @@ nav a {
   white-space: nowrap;
 }
 
+
+
+
+.product_page {
+  min-height:  75vh;
+  margin-top: 8rem;
+  margin-bottom: 10rem;
+}
+
+#cart-link-container {
+  position: relative;
+  margin-right: 10%;
+}
+
+
+#cart-link-container a {
+  top: 2.6rem;
+  margin-left: 2rem;
+}
+
+
+
 #link-to-product {
   position: relative;
   margin: auto 0 auto 0;
  
 }
 
+/* .cart-link {
+  bottom: 1rem;
+} */
+
 #nb-in-cart {
   position: absolute;
   font-size: 2rem;
   bottom: 5rem;
-  left: 11rem;
+  left: 15rem;
   background-color: blanchedalmond;
   padding: 0.3rem 0.6rem;
   border-radius: 3px;
@@ -79,7 +89,7 @@ h1 {
   font-size: 4.5rem;
   text-align: center;
   margin: 3rem auto 0 auto;
-  color: #45caff;
+  color: #000000;
   font-family: 'Alkalami', cursive;
   margin-bottom: 3rem;
 }
@@ -93,9 +103,10 @@ h1 {
 
 
 footer {
-  height: 10vh;
+  height: 8rem;
+  border-top: 1px solid black;
   width: 100%;
-  background: linear-gradient(to left, #485796, #45caff);
+  background: linear-gradient(to right, #ffffff, #e2e2e2);
   margin-top: 5rem;
   text-align: center;
   display: flex;
@@ -122,8 +133,8 @@ footer p {
   width: clamp(30rem,45%, 45rem);
   min-width: 40rem;
   height: 80%;
-  border-radius: 5%;
-  border: 5px solid rgb(231, 241, 246);
+  border-radius: 2%;
+  border: 2px solid rgb(0, 0, 0);
   padding: 0.8rem;
 }
 
@@ -151,8 +162,7 @@ footer p {
 #product-container-description {
   display: flex;
   flex-direction: column;
-  
-  
+  font-size: 1.6rem;
   padding: 1rem 2rem 1rem 2rem;
 }
 
@@ -180,14 +190,22 @@ footer p {
   
 }
 
-#product-description {
-  font-size: 1.2rem;
+#product-description,
+#product-card-quantity,
+#lens-quantity-label,
+#lens-quantity-size 
+{
+  font-size: 1.6rem;
   margin-top: 1rem;
 }
 
 
 #product-card-quantity {
   margin-top: 2rem;
+}
+
+#product-card-quantity input {
+  padding: 5px;
 }
 
 #product-card-quantity input, 
@@ -207,12 +225,6 @@ footer p {
   flex-direction: row;
 }
 
-#lens-quantity-label,
-#lens-quantity-size {
-  font-size: 1.3rem;
-  margin: 1rem 0;
-}
-
 #lens-quantity-size {
   position: relative;
   top: 0.3rem;
@@ -221,6 +233,7 @@ footer p {
 #lens-size-select {
   font-size: 1.3rem;
   margin-top: 1rem;
+  padding: 5px;
   margin-left: 23%;
 }
 
@@ -235,23 +248,20 @@ input[type=number] {
 }
 
 #product-add-to-cart-btn {
-  margin: 2rem auto;
+  margin: 6rem 0 2rem auto;
   padding: 1.2rem 0;
   text-align: center;
-  color: white;
-  font-weight: bold;
+  color: black;
   width: 30%;
-  box-shadow: 1px 0px 0px 4px #9fb4f2;
-	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-	background-color:#7892c2;
+  box-shadow: 1px 0px 0px 1px hsl(231, 100%, 10%);
+	background-color:#ffffff;
 	border-radius:5px;
-	border:1px solid #4e6096;
+	border:1px solid #222222;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
 	font-size: 1.6rem;
 	text-decoration:none;
-	text-shadow:0px 1px 2px #283966;
+	/* text-shadow:0px 1px 2px #292929; */
 }
 
 #product-add-to-cart-btn:hover {
