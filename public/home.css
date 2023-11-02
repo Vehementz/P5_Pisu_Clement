@@ -15,13 +15,13 @@ html {
   font-size: 62.5%;
 }
 
-
+  
 body {
   background: rgb(255, 255, 255);
 }
 
 nav {
-  height: 12rem;
+  height: 8rem;
   /* background: linear-gradient(to left, #ff1b6b, #45caff); */
   background: linear-gradient(to right, #eaeaea, #ffffff);
 
@@ -41,36 +41,116 @@ nav a {
   white-space: nowrap;
 }
 
+/* Base styles */
+
+
+nav a {
+  color: black;
+  font-size: 1.5rem; /* Start with a smaller base font size */
+  font-family: 'Alkalami', cursive;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+
+#link-to-product,
+#cart-link-container a
+ {
+  font-size: 2.5rem;
+}
+
 #cart-link-container {
-  position: relative;
-  margin-right: 10%;
+  margin: auto 2rem;
 }
-
-
-#cart-link-container a {
-  top: 3.8rem;
-  margin-left: 2rem;
-  margin-right: 0.5rem;
-}
-
-#cart-link-container span {
-  margin-left: 0.8rem;
-}
-
-
 
 #link-to-product {
-  position: relative;
-  margin: auto 0 auto 0;
-
+  margin: auto 8rem auto 4rem;
 }
 
+/* Adjust #navigation height and #link-to-product font size responsively */
+@media (max-width: 768px) {
+  nav {
+    background: linear-gradient(to right, #eaeaea, #ffffff);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Adjusted to space-between to handle logo and menu */
+    align-items: center; /* Centers items vertically */
+    padding: 0 2rem; /* Add some padding on the sides */
+  }
+
+  
+  nav a {
+    font-size: 1rem; /* Smaller font size on smaller screens */
+  }
+
+  /* Hamburger menu styles */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    margin: 2rem 0 auto auto;
+  }
+
+  /* Style the navbar when the hamburger menu is clicked */
+  .nav-active {
+    flex-direction: column;
+  }
+
+}
+/* Hamburger button style */
+.hamburger {
+  background: none;
+  border: none;
+  display: none; /* hidden by default, shown in media query below */
+  flex-direction: column;
+  justify-content: space-around;
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Show the hamburger menu */
+  }
+
+  #cart-link-container {
+    display: none; /* Hide the link container by default */
+  }
+
+  #cart-link-container.active {
+    display: block; /* Show the container when active */
+  }
+
+  /* Adjust nav layout for mobile */
+  #navigation {
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-end
+  }
+
+  #link-to-product, #cart-link-container {
+    text-align: center; /* Center links */
+  }
+}
 #nb-in-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
   position: absolute;
   font-size: 2rem;
-  bottom: 5rem;
-  left: 11rem;
-  background-color: blanchedalmond;
+  left: 6.5rem;
+  border: 1px solid black;
+  bottom: 0px;
+  background-color: rgb(255, 255, 255);
   padding: 0.3rem 0.6rem;
   border-radius: 3px;
   width: 2.5rem;
@@ -278,6 +358,16 @@ footer p {
 
 }
 
+
+@media (min-width: 550px) {
+
+.cart-link-container {
+  margin: auto 0;
+}
+
+
+
+}
 
 /* @media (min-width: 700px) {
 /* 

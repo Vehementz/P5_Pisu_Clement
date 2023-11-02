@@ -97,3 +97,25 @@ getCameras();
 
 
 
+function createHamburgerMenu() {
+  // Create hamburger icon and add it to the navigation
+  const nav = document.getElementById('navigation');
+  const hamburger = document.createElement('div');
+  hamburger.classList.add('hamburger');
+  hamburger.innerHTML = `
+    <span></span>
+    <span></span>
+    <span></span>
+  `; // Three lines for the hamburger
+
+  nav.appendChild(hamburger);
+
+  // Create a toggle for the responsive menu
+  hamburger.addEventListener('click', function() {
+    const linkContainer = document.getElementById('cart-link-container');
+    linkContainer.classList.toggle('active');
+  });
+}
+
+// Call the function to create the hamburger menu
+createHamburgerMenu();
