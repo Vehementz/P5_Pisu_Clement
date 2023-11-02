@@ -1,10 +1,12 @@
-*, ::before, ::after {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
   text-decoration: none;
-  list-style-type: none; 
+  list-style-type: none;
   color: inherit;
 }
 
@@ -45,7 +47,7 @@ nav a {
 }
 
 
-#cart-link-container a{
+#cart-link-container a {
   top: 3.8rem;
   margin-left: 2rem;
   margin-right: 0.5rem;
@@ -60,7 +62,7 @@ nav a {
 #link-to-product {
   position: relative;
   margin: auto 0 auto 0;
- 
+
 }
 
 #nb-in-cart {
@@ -111,28 +113,38 @@ footer p {
 .card-container {
   width: 100%;
   height: auto;
-  min-height: 110vh; /* 'min-h-screen' in Tailwind is typically equivalent to 100vh */
+  min-height: 110vh;
+  /* 'min-h-screen' in Tailwind is typically equivalent to 100vh */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center; /* 'mx-auto' in Tailwind centers the div */
+  justify-content: center;
+  /* 'mx-auto' in Tailwind centers the div */
   align-items: center;
-  background-color: #ffffff; /* 'dark:bg-slate-900' in Tailwind */
-  padding-top: 8rem; /* 'pt-8' in Tailwind, where 1rem is typically 4 in Tailwind's scale */
+  background-color: #ffffff;
+  /* 'dark:bg-slate-900' in Tailwind */
+  padding-top: 8rem;
+  /* 'pt-8' in Tailwind, where 1rem is typically 4 in Tailwind's scale */
 }
 
 .camera-card {
   min-width: 70rem;
   height: 62rem;
   width: 30%;
-  border-radius: 0.5rem; /* 'rounded-lg' in Tailwind */
+  border-radius: 0.5rem;
+  /* 'rounded-lg' in Tailwind */
   margin: 4rem auto 6rem;
   /* min-width: 50rem; */
-  overflow: hidden; /* 'overflow-hidden' in Tailwind */
-  background-color: #1b1649; /* 'bg-white' in Tailwind */
-  background-color: #ffffff; /* 'dark:bg-slate-800' for dark mode */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* 'shadow-md' in Tailwind */
-  transition: transform 300ms ease-in-out; /* 'duration-300' in Tailwind */
+  overflow: hidden;
+  /* 'overflow-hidden' in Tailwind */
+  background-color: #1b1649;
+  /* 'bg-white' in Tailwind */
+  background-color: #ffffff;
+  /* 'dark:bg-slate-800' for dark mode */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  /* 'shadow-md' in Tailwind */
+  transition: transform 300ms ease-in-out;
+  /* 'duration-300' in Tailwind */
 }
 
 .camera-card:last-child {
@@ -140,25 +152,32 @@ footer p {
 }
 
 .camera-card:hover {
-  transform: scale(1.05); /* 'hover:scale-105' in Tailwind */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* 'hover:shadow-lg' in Tailwind */
+  transform: scale(1.05);
+  /* 'hover:scale-105' in Tailwind */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  /* 'hover:shadow-lg' in Tailwind */
 }
 
 .camera-card img {
   width: 100%;
   height: 80%;
+  min-height: 50rem;
   margin: 0;
-  border-radius: 0.5rem 0.5rem 0 0; /* 'rounded-lg' in Tailwind applies this border-radius */
+  border-radius: 0.5rem 0.5rem 0 0;
+  /* 'rounded-lg' in Tailwind applies this border-radius */
 }
 
 .container-description {
   padding: 0 4rem;
   display: flex;
+  height: 12rem;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   background: #ffffff;
   margin-top: -0.5rem;
-  border-radius: 0 0 0.5rem 0.5rem; /* 'rounded-lg' border-radius for bottom */
+  border-radius: 0 0 0.5rem 0.5rem;
+  /* 'rounded-lg' border-radius for bottom */
 }
 
 .container-description p {
@@ -194,18 +213,24 @@ footer p {
   font-weight: 500;
   text-align: center;
   color: #FFFFFF;
-  background-color: #6366F1; /* 'bg-indigo-500' in Tailwind */
-  border: none; /* 'focus:outline-none' and 'outline-none' in Tailwind */
-  border-radius: 0.25rem; /* 'rounded' in Tailwind */
-  transition: background-color 500ms ease-in-out; /* 'transition-all duration-500' in Tailwind */
+  background-color: #6366F1;
+  /* 'bg-indigo-500' in Tailwind */
+  border: none;
+  /* 'focus:outline-none' and 'outline-none' in Tailwind */
+  border-radius: 0.25rem;
+  /* 'rounded' in Tailwind */
+  transition: background-color 500ms ease-in-out;
+  /* 'transition-all duration-500' in Tailwind */
 }
 
 .camera-card button:hover {
-  background-color: #4F46E5; /* 'hover:bg-indigo-700' in Tailwind */
+  background-color: #4F46E5;
+  /* 'hover:bg-indigo-700' in Tailwind */
 }
 
 .camera-card button:focus {
-  box-shadow: 0 0 0 2px #C7D2FE, 0 0 0 4px rgba(129, 140, 248, 0.5); /* 'focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2' in Tailwind */
+  box-shadow: 0 0 0 2px #C7D2FE, 0 0 0 4px rgba(129, 140, 248, 0.5);
+  /* 'focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2' in Tailwind */
 }
 
 footer {
@@ -237,12 +262,14 @@ footer p {
   .camera-card {
     width: 90%;
     min-width: 20rem;
-    height: 30rem;
-   
+    height: 40rem;
   }
 
+  .camera-card img {
+    min-height: 30rem;
 
-  
+  }
+
 }
 
 
