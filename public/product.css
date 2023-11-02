@@ -1,10 +1,12 @@
-*, ::before, ::after {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
   text-decoration: none;
-  list-style-type: none; 
+  list-style-type: none;
   color: inherit;
 }
 
@@ -21,16 +23,15 @@ body {
 
 
 nav {
-  height: 12rem;
+  height: 8rem;
   /* background: linear-gradient(to left, #ff1b6b, #45caff); */
   background: linear-gradient(to right, #eaeaea, #ffffff);
+  font-family: 'Alkalami', cursive;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   position: relative;
-  border-bottom: 1px solid black;
 }
-
 
 nav a {
   position: relative;
@@ -43,23 +44,139 @@ nav a {
 }
 
 
+#link-to-product,
+#cart-link-container a {
+  font-size: 2.5rem;
+}
+
+#cart-link-container {
+  margin: auto 2rem;
+  bottom: 2rem;
+}
+
+#link-to-product {
+  margin: auto 8rem auto 4rem;
+}
+
+/* Adjust #navigation height and #link-to-product font size responsively */
+@media (max-width: 768px) {
+  nav {
+    background: linear-gradient(to right, #eaeaea, #ffffff);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* Adjusted to space-between to handle logo and menu */
+    align-items: center;
+    /* Centers items vertically */
+    padding: 0 2rem;
+    /* Add some padding on the sides */
+  }
+
+
+  nav a {
+    font-size: 1rem;
+    /* Smaller font size on smaller screens */
+  }
+
+  /* Hamburger menu styles */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    margin: 2rem 0 auto auto;
+  }
+
+  /* Style the navbar when the hamburger menu is clicked */
+  .nav-active {
+    flex-direction: column;
+  }
+
+}
+
+/* Hamburger button style */
+.hamburger {
+  background: none;
+  border: none;
+  display: none;
+  /* hidden by default, shown in media query below */
+  flex-direction: column;
+  justify-content: space-around;
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    /* Show the hamburger menu */
+  }
+
+  #cart-link-container {
+    display: none;
+    /* Hide the link container by default */
+  }
+
+  #cart-link-container.active {
+    display: block;
+    /* Show the container when active */
+  }
+
+  /* Adjust nav layout for mobile */
+  #navigation {
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-end
+  }
+
+  #link-to-product,
+  #cart-link-container {
+    text-align: center;
+    /* Center links */
+  }
+}
+
+#nb-in-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 30px;
+  position: absolute;
+  font-size: 2rem;
+  left: 8.5rem;
+  border: 1px solid black;
+  bottom: 12px;
+  background-color: rgb(255, 255, 255);
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  width: 2.5rem;
+}
+
+
+
 
 
 .product_page {
-  min-height:  75vh;
+  min-height: 75vh;
   margin-top: 8rem;
   margin-bottom: 10rem;
 }
 
 #cart-link-container {
   position: relative;
-  margin-right: 10%;
 }
 
 
 #cart-link-container a {
   top: 2.6rem;
-  margin-left: 2rem;
 }
 
 
@@ -73,17 +190,6 @@ nav a {
 /* .cart-link {
   bottom: 1rem;
 } */
-
-#nb-in-cart {
-  position: absolute;
-  font-size: 2rem;
-  bottom: 5rem;
-  left: 15rem;
-  background-color: blanchedalmond;
-  padding: 0.3rem 0.6rem;
-  border-radius: 3px;
-  width: 2.5rem;
-}
 
 h1 {
   font-size: 4.5rem;
@@ -121,7 +227,7 @@ footer p {
 
 
 
-/* Page Product.html */ 
+/* Page Product.html */
 
 .product-container {
   display: flex;
@@ -130,7 +236,7 @@ footer p {
 }
 
 #product-card-container {
-  width: clamp(30rem,45%, 45rem);
+  width: clamp(30rem, 45%, 45rem);
   min-width: 40rem;
   height: 80%;
   border-radius: 2%;
@@ -144,16 +250,15 @@ footer p {
   border-radius: 10px 10px 0 0;
 }
 
-#product-card-quantity, 
+#product-card-quantity,
 #product-description,
 #product-card-size,
-#product-titre, 
+#product-titre,
 #name-price-container,
-#product-add-to-cart-btn
-{
+#product-add-to-cart-btn {
   margin-top: 1rem;
   font-size: clamp(1.3rem, 3vw, 1.5rem);
-  
+
 }
 
 
@@ -171,12 +276,12 @@ footer p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
-  
+
+
 }
 
 #product-titre {
-  font-family: 'Mate SC', serif;
+  /* font-family: 'Mate SC', serif; */
   font-size: 2rem;
   color: #000000;
 }
@@ -187,14 +292,13 @@ footer p {
   text-decoration-color: white;
   text-underline-offset: 0.2em;
   color: rgb(0, 0, 0);
-  
+
 }
 
 #product-description,
 #product-card-quantity,
 #lens-quantity-label,
-#lens-quantity-size 
-{
+#lens-quantity-size {
   font-size: 1.6rem;
   margin-top: 1rem;
 }
@@ -208,7 +312,7 @@ footer p {
   padding: 5px;
 }
 
-#product-card-quantity input, 
+#product-card-quantity input,
 #product-card-size {
   width: 4rem;
   text-align: center;
@@ -217,7 +321,7 @@ footer p {
 #product-card-size {
   display: flex;
   flex-direction: row;
-  
+
 }
 
 .product-card-size-form {
@@ -254,24 +358,24 @@ input[type=number] {
   color: black;
   width: 30%;
   box-shadow: 1px 0px 0px 1px hsl(231, 100%, 10%);
-	background-color:#ffffff;
-	border-radius:5px;
-	border:1px solid #222222;
-	display:inline-block;
-	cursor:pointer;
-	font-size: 1.6rem;
-	text-decoration:none;
-	/* text-shadow:0px 1px 2px #292929; */
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #222222;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.6rem;
+  text-decoration: none;
+  /* text-shadow:0px 1px 2px #292929; */
 }
 
 #product-add-to-cart-btn:hover {
-  background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
-	background-color:#476e9e;
+  background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+  background-color: #476e9e;
 }
 
 #product-add-to-cart-btn:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
 #product-add-to-cart {
@@ -285,14 +389,14 @@ input[type=number] {
   #product-card-container {
     min-width: 60rem;
   }
-    }
+}
 
-    @media (max-width: 550px) {
-      #product-card-container {
-        width: 90%;
-        min-width: 20rem;
-        height: 70rem;
-       
-      }
-      
-    }
+@media (max-width: 550px) {
+  #product-card-container {
+    width: 90%;
+    min-width: 20rem;
+    height: 70rem;
+
+  }
+
+}
