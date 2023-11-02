@@ -184,18 +184,24 @@ footer p {
   text-align: center;
   height: 3rem;
   margin: 1rem 0 0;
+  letter-spacing: 1.5px;
+  text-underline-offset: 20px;
 }
+
 
 .contenair-description-name {
-  color: #2B012B;
-  font-size: 1.5rem;
-  font-weight: 700;
-  font-style: italic;
-}
+    color: #2B012B;
+    font-size: 2rem !important;
+    font-weight: 700;
+    font-style: italic;
+    text-underline-offset: 20px;
 
-.container-description-price {
-  font-size: 1.6rem;
-}
+  }
+
+  .container-description-price {
+    font-size: 1.6rem;
+  }
+
 
 .detail-link {
   font-size: 1.4rem;
