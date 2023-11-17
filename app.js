@@ -1,8 +1,8 @@
 
 // OLD 
-// const urlApi = "https://oniroco.onrender.com/api/cameras";
+const urlApi = "https://oniroco.onrender.com/api/cameras";
 
-const urlApi = "http://176.31.163.69:45500/api/cameras";
+// const urlApi = "http://176.31.163.69:45500/api/cameras";
 
 
 
