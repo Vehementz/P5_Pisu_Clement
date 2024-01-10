@@ -35,6 +35,7 @@ nav {
 #cart-link-container {
   position: relative;
   margin-right: 10%;
+  top: 0.4rem;
 }
 
 
@@ -56,6 +57,10 @@ nav a {
 #link-to-product {
   position: relative;
   margin: auto 0 auto 0;
+  font-family: 'Alkalami', cursive;
+}
+
+.link-cart {
   font-family: 'Alkalami', cursive;
 }
 
@@ -112,7 +117,7 @@ footer p {
 .cart-title {
   font-size: 4rem;
   text-align: center;
-  font-family: 'Alkalami', cursive;
+  font-family: 'Alkalami', cursive !important;
 
 }
 
@@ -444,12 +449,11 @@ input[type=number] {
     left: 0rem;
     margin-left: 0rem;
     font-family: 'Alkalami', cursive !important;
-
   }
-/* 
-  #cart-link-container a {
-    margin-top: 0.8rem;
-  } */
+
+  #cart-link-container > * {
+    font-family: 'Alkalami', cursive !important;
+  }
 
   .cart-and-form-container {
     flex-direction: column;
