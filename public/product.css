@@ -25,10 +25,11 @@ body {
 nav {
   height: 8rem;
   /* background: linear-gradient(to left, #ff1b6b, #45caff); */
-  background: linear-gradient(to right, #eaeaea, #ffffff);
+  background: white;
   font-family: 'Alkalami', cursive;
   display: flex;
   flex-direction: row;
+  border-bottom: 1px solid black;
   justify-content: flex-end;
   position: relative;
 }
@@ -50,18 +51,18 @@ nav a {
 }
 
 #cart-link-container {
-  margin: auto 2rem;
+  margin: auto 6rem auto 0 ;
   bottom: 2rem;
 }
 
 #link-to-product {
-  margin: auto 8rem auto 4rem;
+  margin: auto 2rem auto 4rem;
 }
 
 /* Adjust #navigation height and #link-to-product font size responsively */
 @media (max-width: 768px) {
   nav {
-    background: linear-gradient(to right, #eaeaea, #ffffff);
+    background: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -133,7 +134,8 @@ nav a {
   #navigation {
     flex-direction: column;
     display: flex;
-    justify-content: flex-end
+    justify-content: flex-end;
+    border-bottom: 1px solid black;
   }
 
   #link-to-product,
@@ -148,16 +150,15 @@ nav a {
   justify-content: center;
   align-items: center;
   margin: auto;
-  height: 30px;
   position: absolute;
-  font-size: 2rem;
-  left: 8.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  left: 6.8rem;
   border: 1px solid black;
-  bottom: 12px;
+  bottom: 4px;
   background-color: rgb(255, 255, 255);
   padding: 0.3rem 0.6rem;
   border-radius: 3px;
-  width: 2.5rem;
 }
 
 
@@ -166,7 +167,7 @@ nav a {
 
 .product_page {
   min-height: 75vh;
-  margin-top: 8rem;
+  margin-top: 6rem;
   margin-bottom: 10rem;
 }
 
@@ -194,10 +195,9 @@ nav a {
 h1 {
   font-size: 4.5rem;
   text-align: center;
-  margin: 3rem auto 0 auto;
+  margin: 0rem auto 5rem auto;
   color: #000000;
   font-family: 'Alkalami', cursive;
-  margin-bottom: 3rem;
 }
 
 .jumbotron img {
@@ -212,7 +212,7 @@ footer {
   height: 8rem;
   border-top: 1px solid black;
   width: 100%;
-  background: linear-gradient(to right, #ffffff, #e2e2e2);
+  background: white;
   margin-top: 5rem;
   text-align: center;
   display: flex;
@@ -237,7 +237,7 @@ footer p {
 
 #product-card-container {
   width: clamp(30rem, 45%, 45rem);
-  min-width: 40rem;
+  min-width: 52rem;
   height: 80%;
   border-radius: 2%;
   border: 2px solid rgb(0, 0, 0);
@@ -245,7 +245,8 @@ footer p {
 }
 
 #product-card-img {
-  height: 40rem;
+  /* height: 40rem; */
+  aspect-ratio: 3/2;
   width: 100%;
   border-radius: 10px 10px 0 0;
 }
@@ -356,7 +357,8 @@ input[type=number] {
   padding: 1.2rem 0;
   text-align: center;
   color: black;
-  width: 30%;
+  width: 33%;
+  min-width: 16rem;
   box-shadow: 1px 0px 0px 1px hsl(231, 100%, 10%);
   background-color: #ffffff;
   border-radius: 5px;
@@ -395,7 +397,7 @@ input[type=number] {
   #product-card-container {
     width: 90%;
     min-width: 20rem;
-    height: 70rem;
+    height: 78rem;
 
   }
 

@@ -48,26 +48,29 @@ nav a {
   color: black;
   font-size: 2.5rem;
   /* margin: auto 12%;  */
-  font-family: 'Alkalami', cursive;
   font-weight: 700;
   white-space: nowrap;
+  
 }
 
 #link-to-product {
   position: relative;
   margin: auto 0 auto 0;
- 
+  font-family: 'Alkalami', cursive;
 }
 
 #nb-in-cart {
-  position: absolute;
-  font-size: 2rem;
-  bottom: 5rem;
+  /* position: absolute; */
+  font-size: 1rem;
+  /* bottom: 4rem; */
+  width: 2rem;
   left: 12rem;
+  position: relative;
+  top: 1rem;
   border: 1px solid black;
   padding: 0.3rem 0.6rem;
   border-radius: 3px;
-  width: 2.8rem;
+  /* width: 2.8rem; */
 }
 
 h1 {
@@ -75,7 +78,6 @@ h1 {
   text-align: center;
   margin: 3rem auto 0 auto;
   color: black;
-  font-family: 'Alkalami', cursive;
   margin-bottom: 3rem;
 }
 
@@ -223,7 +225,7 @@ footer p {
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+	²ily:Arial;
 	font-size: 1.6rem;
 	padding: 0.8rem 0.6rem;
 	text-decoration:none;
@@ -438,10 +440,16 @@ input[type=number] {
   }
 
   #cart-link-container {
-    margin-top: 2.3rem;
+    margin-top: 1rem;
     left: 0rem;
-    margin-left: 3rem;
+    margin-left: 0rem;
+    font-family: 'Alkalami', cursive !important;
+
   }
+/* 
+  #cart-link-container a {
+    margin-top: 0.8rem;
+  } */
 
   .cart-and-form-container {
     flex-direction: column;

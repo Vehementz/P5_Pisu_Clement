@@ -153,7 +153,7 @@ nav a {
 h1 {
   font-size: clamp(3.5rem, 3vw, 7rem);
   text-align: center;
-  margin: 10rem auto 14rem auto;
+  margin: 6rem auto 0rem auto;
   color: #000000;
   font-family: 'Alkalami', cursive;
   margin-bottom: 3rem;
@@ -197,7 +197,7 @@ footer p {
   align-items: center;
   background-color: #ffffff;
   /* 'dark:bg-slate-900' in Tailwind */
-  padding-top: 8rem;
+  padding-top: 2rem;
   /* 'pt-8' in Tailwind, where 1rem is typically 4 in Tailwind's scale */
 }
 
@@ -319,7 +319,7 @@ footer p {
 footer {
   height: 10rem;
   width: 100%;
-  background: linear-gradient(to right, #ffffff, #eaeaea);
+  background: white;
   border-top: 1px solid black;
   margin-top: 5rem;
   text-align: center;
