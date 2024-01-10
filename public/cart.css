@@ -15,13 +15,13 @@ html {
 
 
 body {
-  background: gray;
+  background: white;
 }
 
 nav {
   height: 12rem;
   /* background: linear-gradient(to left, #ff1b6b, #45caff); */
-  background: linear-gradient(to right, #485796, #45caff);
+  background:white;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -39,14 +39,14 @@ nav {
 
 
 #cart-link-container a{
-  top: 3.2rem;
+  top: 3.5rem;
   margin-left: 2rem;
 }
 
 nav a {
   position: relative;
   color: black;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   /* margin: auto 12%;  */
   font-family: 'Alkalami', cursive;
   font-weight: 700;
@@ -63,18 +63,18 @@ nav a {
   position: absolute;
   font-size: 2rem;
   bottom: 5rem;
-  left: 11rem;
-  background-color: blanchedalmond;
+  left: 12rem;
+  border: 1px solid black;
   padding: 0.3rem 0.6rem;
   border-radius: 3px;
-  width: 2.5rem;
+  width: 2.8rem;
 }
 
 h1 {
   font-size: 4.5rem;
   text-align: center;
   margin: 3rem auto 0 auto;
-  color: #45caff;
+  color: black;
   font-family: 'Alkalami', cursive;
   margin-bottom: 3rem;
 }
@@ -90,7 +90,8 @@ h1 {
 footer {
   height: 10vh;
   width: 100%;
-  background: linear-gradient(to left, #485796, #45caff);
+  background: white;
+  border-top: 1px solid black;
   margin-top: 5rem;
   text-align: center;
   display: flex;
@@ -137,9 +138,9 @@ footer p {
   padding: 0.2rem;
   display: flex;
   flex-direction: row;
-  border: 1px solid brown;
+  border: 1px solid rgb(0, 0, 0);
   margin-bottom: 2rem;
-  background: linear-gradient(to right, #485796, #45caff);
+  background: white;
 }
 
 .image-side {
@@ -180,7 +181,7 @@ footer p {
 #total-container {
   display: flex;
   flex-direction: row;
-  background-color: violet;
+  background-color: white;
   margin-top: 2rem;
 }
 
@@ -189,9 +190,10 @@ footer p {
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
-  background-color: whitesmoke;
+  background-color: white;
   border-radius: 5px;
   padding: 1rem 0.5rem;
+  border: 1px solid black;
 }
 
 .cart-nb-and-remove p {
@@ -203,7 +205,7 @@ footer p {
 }
 
 .cart-nb-and-remove p span {
-  background-color: rgb(42, 91, 199);
+  background-color: black;
   color: whitesmoke;
   padding: 0.3rem 0.6rem;
   border-radius: 5px;
@@ -215,8 +217,8 @@ footer p {
 
 .clear-whole-cart-btn {
   box-shadow: 1px 0px 0px 4px #423030;
-	background-color:#b5023c ;
-	border-radius:5px;
+	background-color:#7c4141 ;
+	border-radius: 2px;
 	border:1px solid #4e6096;
 	display:inline-block;
 	cursor:pointer;
@@ -264,7 +266,7 @@ footer p {
   width: 100%;
   margin: 3rem 4rem 0 2rem;
   border-radius: 5px;
-  background: linear-gradient(0deg, rgba(126,121,96,1) 0%, rgba(253,187,45,1) 100%);
+  background: white;
   justify-content: space-evenly;
 }
 
@@ -277,14 +279,14 @@ footer p {
 fieldset {
   width: 90%;
   margin: 0 auto 0 auto;
-  border: none;
+  border: 1px solid black;
 }
 
 fieldset legend {
   
   margin: 2rem auto 0 auto;
   padding: 0 1rem;
-  color: white;
+  color: black;
   white-space: nowrap;
 }
 
@@ -306,7 +308,7 @@ fieldset legend {
 
 
 .contact-label-email, .contact-label-adress, .contact-label-postal-code, .contact-label-city {
-color:  #f1f1f1;
+color:  black;
 display: block;
 margin: 0 auto;
 width: 80%;
@@ -350,7 +352,7 @@ margin: auto;
 }
 
 .contact-label-name {
-  color: #f1f1f1;
+  color: black;
   position: relative;
   top: 0.2rem;
   white-space: nowrap;
@@ -412,7 +414,8 @@ input[type=number] {
   cursor: pointer;
   border-radius: 5px;
   font-size: clamp(1.4rem, 2vw, 1.8rem);
-  background: radial-gradient(circle, rgba(163,131,7,1) 0%, rgba(241,238,234,1) 150%);
+  background: white;
+  border: 1px solid black;
 }
 
 
